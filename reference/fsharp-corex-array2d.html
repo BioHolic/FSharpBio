@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Array2D - FSharpBio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Timo Mühlhaus">
+
+    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/style.css" />
+    <script type="text/javascript" src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/fsprojects/FSharpBio">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">FSharpBio</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+
+
+<h1>Array2D</h1>
+<div class="xmldoc">
+</div>
+
+<!-- Render nested types and modules, if there are any -->
+
+  <h3>Functions and values</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '908', 908)" onmouseover="showTip(event, '908', 908)">
+            array2D_to_seq arr
+          </code>
+          <div class="tip" id="908">
+            <strong>Signature:</strong> arr:&#39;?53041 [,] -&gt; seq&lt;&#39;?53041&gt;<br />
+                          <strong>Type parameters:</strong> '?53041          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L39-39" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '910', 910)" onmouseover="showTip(event, '910', 910)">
+            empty 
+          </code>
+          <div class="tip" id="910">
+            <strong>Signature:</strong> &#39;a [,]<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L7-7" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Create an empty array2D</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '911', 911)" onmouseover="showTip(event, '911', 911)">
+            ofJaggedArray arr
+          </code>
+          <div class="tip" id="911">
+            <strong>Signature:</strong> arr:&#39;a [] [] -&gt; &#39;a [,]<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L19-19" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Converts a jagged array (twodimensional) into a array2D</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '912', 912)" onmouseover="showTip(event, '912', 912)">
+            ofLongColumnArray arr nrow ncol
+          </code>
+          <div class="tip" id="912">
+            <strong>Signature:</strong> arr:&#39;?53039 [] -&gt; nrow:int -&gt; ncol:int -&gt; &#39;?53039 [,]<br />
+                          <strong>Type parameters:</strong> '?53039          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L33-33" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Creates a Array2D out of a column array [a1;b1;c1;a2;b2;c2;...]</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '913', 913)" onmouseover="showTip(event, '913', 913)">
+            shuffle arr
+          </code>
+          <div class="tip" id="913">
+            <strong>Signature:</strong> arr:&#39;?53049 [,] -&gt; &#39;?53049 [,]<br />
+                          <strong>Type parameters:</strong> '?53049          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L83-83" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Shuffels the input Array2D (method: Fisher-Yates)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '914', 914)" onmouseover="showTip(event, '914', 914)">
+            shuffleColumnWise arr
+          </code>
+          <div class="tip" id="914">
+            <strong>Signature:</strong> arr:&#39;?53045 [,] -&gt; &#39;?53045 [,]<br />
+                          <strong>Type parameters:</strong> '?53045          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L49-49" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Shuffels each column of the input Array2D separately  (method: Fisher-Yates)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '915', 915)" onmouseover="showTip(event, '915', 915)">
+            shuffleRowWise arr
+          </code>
+          <div class="tip" id="915">
+            <strong>Signature:</strong> arr:&#39;?53047 [,] -&gt; &#39;?53047 [,]<br />
+                          <strong>Type parameters:</strong> '?53047          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L66-66" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Shuffels each row of the input Array2D separately  (method: Fisher-Yates)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '916', 916)" onmouseover="showTip(event, '916', 916)">
+            toArray arr
+          </code>
+          <div class="tip" id="916">
+            <strong>Signature:</strong> arr:&#39;?53031 [,] -&gt; &#39;?53031 []<br />
+                          <strong>Type parameters:</strong> '?53031          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L11-11" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Converts a array2D with one row to array</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '917', 917)" onmouseover="showTip(event, '917', 917)">
+            toJaggedArray arr
+          </code>
+          <div class="tip" id="917">
+            <strong>Signature:</strong> arr:&#39;?53033 [,] -&gt; &#39;?53033 [] []<br />
+                          <strong>Type parameters:</strong> '?53033          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L15-15" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Converts a array2D to jagged array</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '918', 918)" onmouseover="showTip(event, '918', 918)">
+            toLongColumnArray arr
+          </code>
+          <div class="tip" id="918">
+            <strong>Signature:</strong> arr:&#39;?53037 [,] -&gt; &#39;?53037 []<br />
+                          <strong>Type parameters:</strong> '?53037          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L27-27" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>concate the columns of an Array2D into a long column array</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '919', 919)" onmouseover="showTip(event, '919', 919)">
+            transpose arr
+          </code>
+          <div class="tip" id="919">
+            <strong>Signature:</strong> arr:&#39;?53043 [,] -&gt; &#39;?53043 [,]<br />
+                          <strong>Type parameters:</strong> '?53043          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharp.CoreX/Array2D.fs#L44-44" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Transpose the array</p>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="span3">
+          <img src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">FSharpBio</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.com/packages/FSharpBio">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio">Source Code on GitHub</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/LICENSE.txt">License</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">Tutorial</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.IO.html">FSharpBio IO</a></li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.ML.html">Mashine learning</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/fsprojects/FSharpBio"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  </body>
+  </html>

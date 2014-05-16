@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>StatisticalMeasure - FSharpBio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Timo Mühlhaus">
+
+    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/style.css" />
+    <script type="text/javascript" src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/fsprojects/FSharpBio">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">FSharpBio</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+
+
+<h1>StatisticalMeasure</h1>
+<div class="xmldoc">
+<p>Module to compute common statistical measure</p>
+</div>
+
+<!-- Render nested types and modules, if there are any -->
+  <h2>Nested types and modules</h2>
+  <div>
+      <table class="table table-bordered type-list">
+    <thead>
+      <tr><td>Type</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="type-name">
+            <a href="fsharpbio-statistics-descriptive-statisticalmeasure-range.html">Range</a>
+          </td>
+          <td class="xmldoc"><p>Range min max</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+  <table class="table table-bordered module-list">
+    <thead>
+      <tr><td>Module</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="module-name">
+            <a href="fsharpbio-statistics-descriptive-statisticalmeasure-matrixmodule.html">Matrix</a>
+          </td>
+          <td class="xmldoc"><p>A module which implements functional matrix operations.</p>
+</td>
+        </tr>
+        <tr>
+          <td class="module-name">
+            <a href="fsharpbio-statistics-descriptive-statisticalmeasure-nan.html">NaN</a>
+          </td>
+          <td class="xmldoc"><p>All descriptice stats function filters NaN and +/- inf values</p>
+</td>
+        </tr>
+        <tr>
+          <td class="module-name">
+            <a href="fsharpbio-statistics-descriptive-statisticalmeasure-utilityfunctions.html">UtilityFunctions</a>
+          </td>
+          <td class="xmldoc"><p>A module which implements helper functions to provide special statistical measures</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+  <h3>Functions and values</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1392', 1392)" onmouseover="showTip(event, '1392', 1392)">
+            averageDev data
+          </code>
+          <div class="tip" id="1392">
+            <strong>Signature:</strong> data:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L557-557" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Average absolute deviation (Normalized by N-1)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1393', 1393)" onmouseover="showTip(event, '1393', 1393)">
+            covariance items1 items2
+          </code>
+          <div class="tip" id="1393">
+            <strong>Signature:</strong> items1:seq&lt;float&gt; -&gt; items2:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L377-377" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the covariance between two sequences of values</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1394', 1394)" onmouseover="showTip(event, '1394', 1394)">
+            covarianceOfMeans (...)
+          </code>
+          <div class="tip" id="1394">
+            <strong>Signature:</strong> mean1:float -&gt; mean2:float -&gt; items1:seq&lt;float&gt; -&gt; items2:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L358-358" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the covariance between two sequences of values</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1395', 1395)" onmouseover="showTip(event, '1395', 1395)">
+            covarianceUnbaised items1 items2
+          </code>
+          <div class="tip" id="1395">
+            <strong>Signature:</strong> items1:seq&lt;float&gt; -&gt; items2:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L413-413" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the unbiased covariance between two sequences of values (Bessel's correction by N-1)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1396', 1396)" onmouseover="showTip(event, '1396', 1396)">
+            covarianceUnbaisedOfMeans (...)
+          </code>
+          <div class="tip" id="1396">
+            <strong>Signature:</strong> mean1:float -&gt; mean2:float -&gt; items1:seq&lt;float&gt; -&gt; items2:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L394-394" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the unbiased covariance between two sequences of values (Bessel's correction by N-1)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1397', 1397)" onmouseover="showTip(event, '1397', 1397)">
+            createRange min max
+          </code>
+          <div class="tip" id="1397">
+            <strong>Signature:</strong> min:float -&gt; max:float -&gt; Range<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L15-15" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Creates range with minimum and maximum</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1398', 1398)" onmouseover="showTip(event, '1398', 1398)">
+            cv items
+          </code>
+          <div class="tip" id="1398">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L310-310" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Coefficient of Variation of a sample</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1399', 1399)" onmouseover="showTip(event, '1399', 1399)">
+            cvOfMean mean items
+          </code>
+          <div class="tip" id="1399">
+            <strong>Signature:</strong> mean:float -&gt; items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L294-294" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Coefficient of Variation of a sample</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1400', 1400)" onmouseover="showTip(event, '1400', 1400)">
+            cvPopulation items
+          </code>
+          <div class="tip" id="1400">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L340-340" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Coefficient of Variation of the population (population standard deviation)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1401', 1401)" onmouseover="showTip(event, '1401', 1401)">
+            cvPopulationOfMean mean items
+          </code>
+          <div class="tip" id="1401">
+            <strong>Signature:</strong> mean:float -&gt; items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L323-323" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Coefficient of Variation of the population (population standard deviation)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1402', 1402)" onmouseover="showTip(event, '1402', 1402)">
+            kurtosis data
+          </code>
+          <div class="tip" id="1402">
+            <strong>Signature:</strong> data:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L503-503" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Kurtosis for the given values.</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1403', 1403)" onmouseover="showTip(event, '1403', 1403)">
+            kurtosisPopulation data
+          </code>
+          <div class="tip" id="1403">
+            <strong>Signature:</strong> data:seq&lt;float&gt; -&gt; float&lt;MeasureOne&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L527-527" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Kurtosis for the given population. (baised)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1404', 1404)" onmouseover="showTip(event, '1404', 1404)">
+            mean items
+          </code>
+          <div class="tip" id="1404">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L41-41" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the population mean (Normalized by N)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1405', 1405)" onmouseover="showTip(event, '1405', 1405)">
+            meanGeometric items
+          </code>
+          <div class="tip" id="1405">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L105-105" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes gemetric mean</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1406', 1406)" onmouseover="showTip(event, '1406', 1406)">
+            meanHarmonic items
+          </code>
+          <div class="tip" id="1406">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L87-87" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes harmonic mean</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1407', 1407)" onmouseover="showTip(event, '1407', 1407)">
+            meanLogGeometric items
+          </code>
+          <div class="tip" id="1407">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L122-122" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the log gemetric mean</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1408', 1408)" onmouseover="showTip(event, '1408', 1408)">
+            meanTruncated percent data
+          </code>
+          <div class="tip" id="1408">
+            <strong>Signature:</strong> percent:float -&gt; data:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L143-143" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the truncated (trimmed) mean</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1409', 1409)" onmouseover="showTip(event, '1409', 1409)">
+            median data
+          </code>
+          <div class="tip" id="1409">
+            <strong>Signature:</strong> data:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L162-162" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Sample Median</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1410', 1410)" onmouseover="showTip(event, '1410', 1410)">
+            medianAbsoluteDev data
+          </code>
+          <div class="tip" id="1410">
+            <strong>Signature:</strong> data:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L540-540" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Median absolute deviation
+MAD</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1411', 1411)" onmouseover="showTip(event, '1411', 1411)">
+            populationAverageDev data
+          </code>
+          <div class="tip" id="1411">
+            <strong>Signature:</strong> data:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L547-547" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Average absolute deviation (Normalized by N)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1412', 1412)" onmouseover="showTip(event, '1412', 1412)">
+            range items
+          </code>
+          <div class="tip" id="1412">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; Range<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L19-19" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1413', 1413)" onmouseover="showTip(event, '1413', 1413)">
+            skewness items
+          </code>
+          <div class="tip" id="1413">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L466-466" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Skewness for the given values.</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1414', 1414)" onmouseover="showTip(event, '1414', 1414)">
+            skewnessFromMean mean items
+          </code>
+          <div class="tip" id="1414">
+            <strong>Signature:</strong> mean:float -&gt; items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L434-434" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Skewness for the given values.</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1415', 1415)" onmouseover="showTip(event, '1415', 1415)">
+            skewnessPopulation data
+          </code>
+          <div class="tip" id="1415">
+            <strong>Signature:</strong> data:seq&lt;float&gt; -&gt; float&lt;MeasureOne&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L484-484" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the Skewness for the given population. (baised)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1416', 1416)" onmouseover="showTip(event, '1416', 1416)">
+            stDev items
+          </code>
+          <div class="tip" id="1416">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L193-193" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the sample standard deviation</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1417', 1417)" onmouseover="showTip(event, '1417', 1417)">
+            stDevOfMean mean items
+          </code>
+          <div class="tip" id="1417">
+            <strong>Signature:</strong> mean:float -&gt; items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L177-177" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the sample standard deviation</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1418', 1418)" onmouseover="showTip(event, '1418', 1418)">
+            stDevPopulation items
+          </code>
+          <div class="tip" id="1418">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L222-222" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the population standard deviation (Bessel's correction by N-1)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1419', 1419)" onmouseover="showTip(event, '1419', 1419)">
+            stDevPopulationOfMean mean items
+          </code>
+          <div class="tip" id="1419">
+            <strong>Signature:</strong> mean:float -&gt; items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L206-206" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the population standard deviation (Bessel's correction by N-1)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1420', 1420)" onmouseover="showTip(event, '1420', 1420)">
+            var items
+          </code>
+          <div class="tip" id="1420">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L251-251" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the sample variance</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1421', 1421)" onmouseover="showTip(event, '1421', 1421)">
+            varOfMean mean items
+          </code>
+          <div class="tip" id="1421">
+            <strong>Signature:</strong> mean:float -&gt; items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L235-235" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the sample variance</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1422', 1422)" onmouseover="showTip(event, '1422', 1422)">
+            varPopulation items
+          </code>
+          <div class="tip" id="1422">
+            <strong>Signature:</strong> items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L281-281" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the unbaised variance estimator of the given values (Bessel's correction by N-1)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1423', 1423)" onmouseover="showTip(event, '1423', 1423)">
+            varPopulationOfMean mean items
+          </code>
+          <div class="tip" id="1423">
+            <strong>Signature:</strong> mean:float -&gt; items:seq&lt;float&gt; -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/StatisticalMeasure.fs#L264-264" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes the unbaised variance estimator of the given values (Bessel's correction by N-1)</p>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="span3">
+          <img src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">FSharpBio</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.com/packages/FSharpBio">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio">Source Code on GitHub</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/LICENSE.txt">License</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">Tutorial</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.IO.html">FSharpBio IO</a></li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.ML.html">Mashine learning</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/fsprojects/FSharpBio"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  </body>
+  </html>

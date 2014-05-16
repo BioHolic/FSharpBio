@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Filtering - FSharpBio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Timo Mühlhaus">
+
+    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/style.css" />
+    <script type="text/javascript" src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/fsprojects/FSharpBio">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">FSharpBio</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+
+
+<h1>Filtering</h1>
+<div class="xmldoc">
+</div>
+
+<!-- Render nested types and modules, if there are any -->
+
+  <h3>Functions and values</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1424', 1424)" onmouseover="showTip(event, '1424', 1424)">
+            ButterworthFilter (...)
+          </code>
+          <div class="tip" id="1424">
+            <strong>Signature:</strong> sampleFrequency:float -&gt; order:int -&gt; f0:float -&gt; dcGain:float -&gt; signal:seq&lt;float&gt; -&gt; float []<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Fitting/Filtering.fs#L21-21" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1425', 1425)" onmouseover="showTip(event, '1425', 1425)">
+            ChebeshevFilter 
+          </code>
+          <div class="tip" id="1425">
+            <strong>Signature:</strong> int<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Fitting/Filtering.fs#L42-42" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>http://www.centerspace.net/blog/nmath/chebyshev-filters-with-nmath/</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1426', 1426)" onmouseover="showTip(event, '1426', 1426)">
+            fromComplexFloat c
+          </code>
+          <div class="tip" id="1426">
+            <strong>Signature:</strong> c:Complex -&gt; float<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Fitting/Filtering.fs#L8-8" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1427', 1427)" onmouseover="showTip(event, '1427', 1427)">
+            fromComplexFloatArray data
+          </code>
+          <div class="tip" id="1427">
+            <strong>Signature:</strong> data:Complex [] -&gt; float []<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Fitting/Filtering.fs#L16-16" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1428', 1428)" onmouseover="showTip(event, '1428', 1428)">
+            toComplexFloat d
+          </code>
+          <div class="tip" id="1428">
+            <strong>Signature:</strong> d:float -&gt; Complex<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Fitting/Filtering.fs#L5-5" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1429', 1429)" onmouseover="showTip(event, '1429', 1429)">
+            toComplexFloatArray data
+          </code>
+          <div class="tip" id="1429">
+            <strong>Signature:</strong> data:seq&lt;float&gt; -&gt; Complex []<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Fitting/Filtering.fs#L11-11" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="span3">
+          <img src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">FSharpBio</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.com/packages/FSharpBio">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio">Source Code on GitHub</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/LICENSE.txt">License</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">Tutorial</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.IO.html">FSharpBio IO</a></li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.ML.html">Mashine learning</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/fsprojects/FSharpBio"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  </body>
+  </html>

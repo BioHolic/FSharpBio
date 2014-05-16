@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>FSharpBio
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FsharpBio aims to be a user-friendly library for Bioinformatics written in F#.">
+    <meta name="author" content="Timo Mühlhaus">
+
+    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/style.css" />
+    <script type="text/javascript" src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/fsprojects/FSharpBio">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">FSharpBio</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+<h1>FSharpBio</h1>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">  1: </span>
+<span class="l">  2: </span>
+<span class="l">  3: </span>
+<span class="l">  4: </span>
+<span class="l">  5: </span>
+<span class="l">  6: </span>
+<span class="l">  7: </span>
+<span class="l">  8: </span>
+<span class="l">  9: </span>
+<span class="l"> 10: </span>
+<span class="l"> 11: </span>
+<span class="l"> 12: </span>
+<span class="l"> 13: </span>
+<span class="l"> 14: </span>
+<span class="l"> 15: </span>
+<span class="l"> 16: </span>
+<span class="l"> 17: </span>
+<span class="l"> 18: </span>
+<span class="l"> 19: </span>
+<span class="l"> 20: </span>
+<span class="l"> 21: </span>
+<span class="l"> 22: </span>
+<span class="l"> 23: </span>
+<span class="l"> 24: </span>
+<span class="l"> 25: </span>
+<span class="l"> 26: </span>
+<span class="l"> 27: </span>
+<span class="l"> 28: </span>
+<span class="l"> 29: </span>
+<span class="l"> 30: </span>
+<span class="l"> 31: </span>
+<span class="l"> 32: </span>
+<span class="l"> 33: </span>
+<span class="l"> 34: </span>
+<span class="l"> 35: </span>
+<span class="l"> 36: </span>
+<span class="l"> 37: </span>
+<span class="l"> 38: </span>
+<span class="l"> 39: </span>
+<span class="l"> 40: </span>
+<span class="l"> 41: </span>
+<span class="l"> 42: </span>
+<span class="l"> 43: </span>
+<span class="l"> 44: </span>
+<span class="l"> 45: </span>
+<span class="l"> 46: </span>
+<span class="l"> 47: </span>
+<span class="l"> 48: </span>
+<span class="l"> 49: </span>
+<span class="l"> 50: </span>
+<span class="l"> 51: </span>
+<span class="l"> 52: </span>
+<span class="l"> 53: </span>
+<span class="l"> 54: </span>
+<span class="l"> 55: </span>
+<span class="l"> 56: </span>
+<span class="l"> 57: </span>
+<span class="l"> 58: </span>
+<span class="l"> 59: </span>
+<span class="l"> 60: </span>
+<span class="l"> 61: </span>
+<span class="l"> 62: </span>
+<span class="l"> 63: </span>
+<span class="l"> 64: </span>
+<span class="l"> 65: </span>
+<span class="l"> 66: </span>
+<span class="l"> 67: </span>
+<span class="l"> 68: </span>
+<span class="l"> 69: </span>
+<span class="l"> 70: </span>
+<span class="l"> 71: </span>
+<span class="l"> 72: </span>
+<span class="l"> 73: </span>
+<span class="l"> 74: </span>
+<span class="l"> 75: </span>
+<span class="l"> 76: </span>
+<span class="l"> 77: </span>
+<span class="l"> 78: </span>
+<span class="l"> 79: </span>
+<span class="l"> 80: </span>
+<span class="l"> 81: </span>
+<span class="l"> 82: </span>
+<span class="l"> 83: </span>
+<span class="l"> 84: </span>
+<span class="l"> 85: </span>
+<span class="l"> 86: </span>
+<span class="l"> 87: </span>
+<span class="l"> 88: </span>
+<span class="l"> 89: </span>
+<span class="l"> 90: </span>
+<span class="l"> 91: </span>
+<span class="l"> 92: </span>
+<span class="l"> 93: </span>
+<span class="l"> 94: </span>
+<span class="l"> 95: </span>
+<span class="l"> 96: </span>
+<span class="l"> 97: </span>
+<span class="l"> 98: </span>
+<span class="l"> 99: </span>
+<span class="l">100: </span>
+<span class="l">101: </span>
+<span class="l">102: </span>
+<span class="l">103: </span>
+<span class="l">104: </span>
+<span class="l">105: </span>
+<span class="l">106: </span>
+<span class="l">107: </span>
+<span class="l">108: </span>
+<span class="l">109: </span>
+<span class="l">110: </span>
+<span class="l">111: </span>
+<span class="l">112: </span>
+<span class="l">113: </span>
+<span class="l">114: </span>
+<span class="l">115: </span>
+<span class="l">116: </span>
+<span class="l">117: </span>
+<span class="l">118: </span>
+<span class="l">119: </span>
+<span class="l">120: </span>
+<span class="l">121: </span>
+<span class="l">122: </span>
+<span class="l">123: </span>
+<span class="l">124: </span>
+<span class="l">125: </span>
+<span class="l">126: </span>
+<span class="l">127: </span>
+<span class="l">128: </span>
+<span class="l">129: </span>
+<span class="l">130: </span>
+<span class="l">131: </span>
+<span class="l">132: </span>
+<span class="l">133: </span>
+<span class="l">134: </span>
+<span class="l">135: </span>
+<span class="l">136: </span>
+<span class="l">137: </span>
+<span class="l">138: </span>
+<span class="l">139: </span>
+<span class="l">140: </span>
+<span class="l">141: </span>
+<span class="l">142: </span>
+<span class="l">143: </span>
+<span class="l">144: </span>
+<span class="l">145: </span>
+<span class="l">146: </span>
+<span class="l">147: </span>
+<span class="l">148: </span>
+<span class="l">149: </span>
+<span class="l">150: </span>
+<span class="l">151: </span>
+<span class="l">152: </span>
+<span class="l">153: </span>
+<span class="l">154: </span>
+<span class="l">155: </span>
+<span class="l">156: </span>
+<span class="l">157: </span>
+<span class="l">158: </span>
+<span class="l">159: </span>
+<span class="l">160: </span>
+<span class="l">161: </span>
+<span class="l">162: </span>
+<span class="l">163: </span>
+<span class="l">164: </span>
+<span class="l">165: </span>
+<span class="l">166: </span>
+<span class="l">167: </span>
+<span class="l">168: </span>
+<span class="l">169: </span>
+<span class="l">170: </span>
+<span class="l">171: </span>
+<span class="l">172: </span>
+<span class="l">173: </span>
+<span class="l">174: </span>
+<span class="l">175: </span>
+<span class="l">176: </span>
+<span class="l">177: </span>
+<span class="l">178: </span>
+<span class="l">179: </span>
+<span class="l">180: </span>
+<span class="l">181: </span>
+<span class="l">182: </span>
+<span class="l">183: </span>
+<span class="l">184: </span>
+<span class="l">185: </span>
+<span class="l">186: </span>
+<span class="l">187: </span>
+<span class="l">188: </span>
+<span class="l">189: </span>
+<span class="l">190: </span>
+<span class="l">191: </span>
+<span class="l">192: </span>
+<span class="l">193: </span>
+<span class="l">194: </span>
+<span class="l">195: </span>
+<span class="l">196: </span>
+<span class="l">197: </span>
+<span class="l">198: </span>
+<span class="l">199: </span>
+<span class="l">200: </span>
+<span class="l">201: </span>
+<span class="l">202: </span>
+<span class="l">203: </span>
+<span class="l">204: </span>
+<span class="l">205: </span>
+<span class="l">206: </span>
+<span class="l">207: </span>
+<span class="l">208: </span>
+<span class="l">209: </span>
+<span class="l">210: </span>
+<span class="l">211: </span>
+<span class="l">212: </span>
+<span class="l">213: </span>
+<span class="l">214: </span>
+<span class="l">215: </span>
+<span class="l">216: </span>
+<span class="l">217: </span>
+<span class="l">218: </span>
+<span class="l">219: </span>
+<span class="l">220: </span>
+<span class="l">221: </span>
+<span class="l">222: </span>
+<span class="l">223: </span>
+<span class="l">224: </span>
+<span class="l">225: </span>
+<span class="l">226: </span>
+<span class="l">227: </span>
+<span class="l">228: </span>
+<span class="l">229: </span>
+<span class="l">230: </span>
+<span class="l">231: </span>
+<span class="l">232: </span>
+<span class="l">233: </span>
+<span class="l">234: </span>
+<span class="l">235: </span>
+<span class="l">236: </span>
+<span class="l">237: </span>
+<span class="l">238: </span>
+<span class="l">239: </span>
+<span class="l">240: </span>
+<span class="l">241: </span>
+<span class="l">242: </span>
+<span class="l">243: </span>
+<span class="l">244: </span>
+<span class="l">245: </span>
+<span class="l">246: </span>
+<span class="l">247: </span>
+<span class="l">248: </span>
+<span class="l">249: </span>
+<span class="l">250: </span>
+<span class="l">251: </span>
+<span class="l">252: </span>
+<span class="l">253: </span>
+<span class="l">254: </span>
+<span class="l">255: </span>
+<span class="l">256: </span>
+<span class="l">257: </span>
+<span class="l">258: </span>
+<span class="l">259: </span>
+<span class="l">260: </span>
+<span class="l">261: </span>
+<span class="l">262: </span>
+<span class="l">263: </span>
+<span class="l">264: </span>
+<span class="l">265: </span>
+<span class="l">266: </span>
+<span class="l">267: </span>
+<span class="l">268: </span>
+<span class="l">269: </span>
+<span class="l">270: </span>
+<span class="l">271: </span>
+<span class="l">272: </span>
+<span class="l">273: </span>
+<span class="l">274: </span>
+<span class="l">275: </span>
+<span class="l">276: </span>
+<span class="l">277: </span>
+<span class="l">278: </span>
+<span class="l">279: </span>
+<span class="l">280: </span>
+<span class="l">281: </span>
+<span class="l">282: </span>
+<span class="l">283: </span>
+<span class="l">284: </span>
+<span class="l">285: </span>
+<span class="l">286: </span>
+<span class="l">287: </span>
+<span class="l">288: </span>
+<span class="l">289: </span>
+<span class="l">290: </span>
+<span class="l">291: </span>
+<span class="l">292: </span>
+<span class="l">293: </span>
+<span class="l">294: </span>
+<span class="l">295: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="c">// ##################################################################</span>
+<span class="c">// Examples: Csv-reader reads iris data set</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">irisItem</span> <span class="o">=</span> 
+    { [&lt;<span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">FieldAttribute</span>(<span class="s">&quot;</span><span class="s">Sepal</span><span class="s"> </span><span class="s">length</span><span class="s">&quot;</span>)&gt;] <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">SepalLength</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">float</span>
+      [&lt;<span onmouseout="hideTip(event, 'fs2', 5)" onmouseover="showTip(event, 'fs2', 5)" class="i">FieldAttribute</span>(<span class="s">&quot;</span><span class="s">Sepal</span><span class="s"> </span><span class="s">width</span><span class="s">&quot;</span>)&gt;] <span onmouseout="hideTip(event, 'fs5', 6)" onmouseover="showTip(event, 'fs5', 6)" class="i">SepalWidth</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs4', 7)" onmouseover="showTip(event, 'fs4', 7)" class="i">float</span>
+      [&lt;<span onmouseout="hideTip(event, 'fs2', 8)" onmouseover="showTip(event, 'fs2', 8)" class="i">FieldAttribute</span>(<span class="s">&quot;</span><span class="s">Petal</span><span class="s"> </span><span class="s">length</span><span class="s">&quot;</span>)&gt;] <span onmouseout="hideTip(event, 'fs6', 9)" onmouseover="showTip(event, 'fs6', 9)" class="i">PetalLength</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs4', 10)" onmouseover="showTip(event, 'fs4', 10)" class="i">float</span>
+      [&lt;<span onmouseout="hideTip(event, 'fs2', 11)" onmouseover="showTip(event, 'fs2', 11)" class="i">FieldAttribute</span>(<span class="s">&quot;</span><span class="s">Petal</span><span class="s"> </span><span class="s">width</span><span class="s">&quot;</span>)&gt;] <span onmouseout="hideTip(event, 'fs7', 12)" onmouseover="showTip(event, 'fs7', 12)" class="i">PetalWidth</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs4', 13)" onmouseover="showTip(event, 'fs4', 13)" class="i">float</span>
+      [&lt;<span onmouseout="hideTip(event, 'fs2', 14)" onmouseover="showTip(event, 'fs2', 14)" class="i">FieldAttribute</span>(<span class="s">&quot;</span><span class="s">Species</span><span class="s">&quot;</span>)&gt;] <span onmouseout="hideTip(event, 'fs8', 15)" onmouseover="showTip(event, 'fs8', 15)" class="i">Species</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="i">string</span> }
+
+<span class="k">let</span> _ <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="i">FileIO</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="i">setWorkingDirectory</span> <span class="k">__SOURCE_DIRECTORY__</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 19)" onmouseover="showTip(event, 'fs12', 19)" class="i">reader</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="i">CsvReader</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs1', 21)" onmouseover="showTip(event, 'fs1', 21)" class="i">irisItem</span><span class="o">&gt;</span>()
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 22)" onmouseover="showTip(event, 'fs14', 22)" class="i">irisData</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 23)" onmouseover="showTip(event, 'fs12', 23)" class="i">reader</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs15', 24)" onmouseover="showTip(event, 'fs15', 24)" class="i">ReadFile</span>(<span class="s">&quot;</span><span class="s">.</span><span class="s">/</span><span class="s">data</span><span class="s">/</span><span class="s">irisData</span><span class="s">.</span><span class="s">csv</span><span class="s">&quot;</span>, <span class="s">&#39;,&#39;</span>, <span class="k">true</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 25)" onmouseover="showTip(event, 'fs16', 25)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 26)" onmouseover="showTip(event, 'fs17', 26)" class="i">toList</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 27)" onmouseover="showTip(event, 'fs18', 27)" class="i">firstItem</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="i">irisData</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 29)" onmouseover="showTip(event, 'fs16', 29)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 30)" onmouseover="showTip(event, 'fs19', 30)" class="i">averageBy</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs20', 31)" onmouseover="showTip(event, 'fs20', 31)" class="i">item</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs1', 32)" onmouseover="showTip(event, 'fs1', 32)" class="i">irisItem</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs20', 33)" onmouseover="showTip(event, 'fs20', 33)" class="i">item</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 34)" onmouseover="showTip(event, 'fs6', 34)" class="i">PetalLength</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 35)" onmouseover="showTip(event, 'fs21', 35)" class="i">irisFeatures</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs14', 36)" onmouseover="showTip(event, 'fs14', 36)" class="i">irisData</span> 
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 37)" onmouseover="showTip(event, 'fs22', 37)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs23', 38)" onmouseover="showTip(event, 'fs23', 38)" class="i">map</span> 
+           (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs24', 39)" onmouseover="showTip(event, 'fs24', 39)" class="i">ii</span> <span class="k">-&gt;</span> 
+           [ <span onmouseout="hideTip(event, 'fs24', 40)" onmouseover="showTip(event, 'fs24', 40)" class="i">ii</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 41)" onmouseover="showTip(event, 'fs3', 41)" class="i">SepalLength</span>; <span onmouseout="hideTip(event, 'fs24', 42)" onmouseover="showTip(event, 'fs24', 42)" class="i">ii</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 43)" onmouseover="showTip(event, 'fs5', 43)" class="i">SepalWidth</span>; <span onmouseout="hideTip(event, 'fs24', 44)" onmouseover="showTip(event, 'fs24', 44)" class="i">ii</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 45)" onmouseover="showTip(event, 'fs6', 45)" class="i">PetalLength</span>; <span onmouseout="hideTip(event, 'fs24', 46)" onmouseover="showTip(event, 'fs24', 46)" class="i">ii</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 47)" onmouseover="showTip(event, 'fs7', 47)" class="i">PetalWidth</span> ])
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs25', 48)" onmouseover="showTip(event, 'fs25', 48)" class="i">irisLables</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 49)" onmouseover="showTip(event, 'fs14', 49)" class="i">irisData</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 50)" onmouseover="showTip(event, 'fs22', 50)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs23', 51)" onmouseover="showTip(event, 'fs23', 51)" class="i">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs24', 52)" onmouseover="showTip(event, 'fs24', 52)" class="i">ii</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs24', 53)" onmouseover="showTip(event, 'fs24', 53)" class="i">ii</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 54)" onmouseover="showTip(event, 'fs8', 54)" class="i">Species</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 55)" onmouseover="showTip(event, 'fs26', 55)" class="i">irisFeaturesMatrix</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 56)" onmouseover="showTip(event, 'fs27', 56)" class="i">DenseMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs28', 57)" onmouseover="showTip(event, 'fs28', 57)" class="i">ofList</span> <span onmouseout="hideTip(event, 'fs21', 58)" onmouseover="showTip(event, 'fs21', 58)" class="i">irisFeatures</span>
+<span class="c">// ---------------</span>
+<span class="c">// Principal component analysis</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 59)" onmouseover="showTip(event, 'fs29', 59)" class="i">adjCenter</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 60)" onmouseover="showTip(event, 'fs30', 60)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs31', 61)" onmouseover="showTip(event, 'fs31', 61)" class="i">toAdjustCenter</span> <span onmouseout="hideTip(event, 'fs26', 62)" onmouseover="showTip(event, 'fs26', 62)" class="i">irisFeaturesMatrix</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs32', 63)" onmouseover="showTip(event, 'fs32', 63)" class="i">irisPCA</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 64)" onmouseover="showTip(event, 'fs30', 64)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs33', 65)" onmouseover="showTip(event, 'fs33', 65)" class="i">compute</span> <span onmouseout="hideTip(event, 'fs29', 66)" onmouseover="showTip(event, 'fs29', 66)" class="i">adjCenter</span> <span onmouseout="hideTip(event, 'fs26', 67)" onmouseover="showTip(event, 'fs26', 67)" class="i">irisFeaturesMatrix</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs34', 68)" onmouseover="showTip(event, 'fs34', 68)" class="i">irisDataPCA</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 69)" onmouseover="showTip(event, 'fs30', 69)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 70)" onmouseover="showTip(event, 'fs35', 70)" class="i">transform</span> <span onmouseout="hideTip(event, 'fs29', 71)" onmouseover="showTip(event, 'fs29', 71)" class="i">adjCenter</span> <span onmouseout="hideTip(event, 'fs32', 72)" onmouseover="showTip(event, 'fs32', 72)" class="i">irisPCA</span> <span onmouseout="hideTip(event, 'fs26', 73)" onmouseover="showTip(event, 'fs26', 73)" class="i">irisFeaturesMatrix</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs36', 74)" onmouseover="showTip(event, 'fs36', 74)" class="i">irisrev</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 75)" onmouseover="showTip(event, 'fs30', 75)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs37', 76)" onmouseover="showTip(event, 'fs37', 76)" class="i">revert</span> <span onmouseout="hideTip(event, 'fs29', 77)" onmouseover="showTip(event, 'fs29', 77)" class="i">adjCenter</span> <span onmouseout="hideTip(event, 'fs32', 78)" onmouseover="showTip(event, 'fs32', 78)" class="i">irisPCA</span> <span onmouseout="hideTip(event, 'fs34', 79)" onmouseover="showTip(event, 'fs34', 79)" class="i">irisDataPCA</span>
+
+<span class="c">// Score Plot</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs38', 80)" onmouseover="showTip(event, 'fs38', 80)" class="i">FSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 81)" onmouseover="showTip(event, 'fs39', 81)" class="i">Charting</span>
+
+<span class="c">// Plot loadings colored grouped by grouping function</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs40', 82)" onmouseover="showTip(event, 'fs40', 82)" class="i">plotLoadingsColoredByGrouping</span> (<span onmouseout="hideTip(event, 'fs41', 83)" onmouseover="showTip(event, 'fs41', 83)" class="i">pcaComponents</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 84)" onmouseover="showTip(event, 'fs30', 84)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs42', 85)" onmouseover="showTip(event, 'fs42', 85)" class="i">Component</span> []) 
+    (<span onmouseout="hideTip(event, 'fs43', 86)" onmouseover="showTip(event, 'fs43', 86)" class="i">labels</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs44', 87)" onmouseover="showTip(event, 'fs44', 87)" class="i">seq</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs9', 88)" onmouseover="showTip(event, 'fs9', 88)" class="i">string</span><span class="o">&gt;</span>) (<span onmouseout="hideTip(event, 'fs45', 89)" onmouseover="showTip(event, 'fs45', 89)" class="i">grouping</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 90)" onmouseover="showTip(event, 'fs9', 90)" class="i">string</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 91)" onmouseover="showTip(event, 'fs9', 91)" class="i">string</span>) <span onmouseout="hideTip(event, 'fs46', 92)" onmouseover="showTip(event, 'fs46', 92)" class="i">pcIndex1</span> <span onmouseout="hideTip(event, 'fs47', 93)" onmouseover="showTip(event, 'fs47', 93)" class="i">pcIndex2</span> <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs48', 94)" onmouseover="showTip(event, 'fs48', 94)" class="i">pComponent1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs41', 95)" onmouseover="showTip(event, 'fs41', 95)" class="i">pcaComponents</span><span class="o">.</span>[<span onmouseout="hideTip(event, 'fs46', 96)" onmouseover="showTip(event, 'fs46', 96)" class="i">pcIndex1</span> <span class="o">-</span> <span class="n">1</span>]
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs49', 97)" onmouseover="showTip(event, 'fs49', 97)" class="i">pComponent2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs41', 98)" onmouseover="showTip(event, 'fs41', 98)" class="i">pcaComponents</span><span class="o">.</span>[<span onmouseout="hideTip(event, 'fs47', 99)" onmouseover="showTip(event, 'fs47', 99)" class="i">pcIndex2</span> <span class="o">-</span> <span class="n">1</span>]
+    (<span onmouseout="hideTip(event, 'fs16', 100)" onmouseover="showTip(event, 'fs16', 100)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs50', 101)" onmouseover="showTip(event, 'fs50', 101)" class="i">zip3</span> (<span onmouseout="hideTip(event, 'fs48', 102)" onmouseover="showTip(event, 'fs48', 102)" class="i">pComponent1</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs51', 103)" onmouseover="showTip(event, 'fs51', 103)" class="i">EigenVector</span>) (<span onmouseout="hideTip(event, 'fs49', 104)" onmouseover="showTip(event, 'fs49', 104)" class="i">pComponent2</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs51', 105)" onmouseover="showTip(event, 'fs51', 105)" class="i">EigenVector</span>) <span onmouseout="hideTip(event, 'fs43', 106)" onmouseover="showTip(event, 'fs43', 106)" class="i">labels</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 107)" onmouseover="showTip(event, 'fs16', 107)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs52', 108)" onmouseover="showTip(event, 'fs52', 108)" class="i">groupBy</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs53', 109)" onmouseover="showTip(event, 'fs53', 109)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 110)" onmouseover="showTip(event, 'fs54', 110)" class="i">y</span>, <span onmouseout="hideTip(event, 'fs55', 111)" onmouseover="showTip(event, 'fs55', 111)" class="i">label</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs45', 112)" onmouseover="showTip(event, 'fs45', 112)" class="i">grouping</span> <span onmouseout="hideTip(event, 'fs55', 113)" onmouseover="showTip(event, 'fs55', 113)" class="i">label</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 114)" onmouseover="showTip(event, 'fs16', 114)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 115)" onmouseover="showTip(event, 'fs56', 115)" class="i">map</span> 
+           (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 116)" onmouseover="showTip(event, 'fs57', 116)" class="i">key</span>, <span onmouseout="hideTip(event, 'fs58', 117)" onmouseover="showTip(event, 'fs58', 117)" class="i">values</span>) <span class="k">-&gt;</span> 
+           <span class="k">let</span> <span onmouseout="hideTip(event, 'fs59', 118)" onmouseover="showTip(event, 'fs59', 118)" class="i">nVal</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs58', 119)" onmouseover="showTip(event, 'fs58', 119)" class="i">values</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 120)" onmouseover="showTip(event, 'fs16', 120)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 121)" onmouseover="showTip(event, 'fs56', 121)" class="i">map</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs53', 122)" onmouseover="showTip(event, 'fs53', 122)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 123)" onmouseover="showTip(event, 'fs54', 123)" class="i">y</span>, <span onmouseout="hideTip(event, 'fs60', 124)" onmouseover="showTip(event, 'fs60', 124)" class="i">l</span>) <span class="k">-&gt;</span> (<span onmouseout="hideTip(event, 'fs53', 125)" onmouseover="showTip(event, 'fs53', 125)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 126)" onmouseover="showTip(event, 'fs54', 126)" class="i">y</span>))
+           <span class="k">let</span> <span onmouseout="hideTip(event, 'fs61', 127)" onmouseover="showTip(event, 'fs61', 127)" class="i">nLab</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs58', 128)" onmouseover="showTip(event, 'fs58', 128)" class="i">values</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 129)" onmouseover="showTip(event, 'fs16', 129)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 130)" onmouseover="showTip(event, 'fs56', 130)" class="i">map</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs53', 131)" onmouseover="showTip(event, 'fs53', 131)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 132)" onmouseover="showTip(event, 'fs54', 132)" class="i">y</span>, <span onmouseout="hideTip(event, 'fs60', 133)" onmouseover="showTip(event, 'fs60', 133)" class="i">l</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs60', 134)" onmouseover="showTip(event, 'fs60', 134)" class="i">l</span>)
+           <span onmouseout="hideTip(event, 'fs62', 135)" onmouseover="showTip(event, 'fs62', 135)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs63', 136)" onmouseover="showTip(event, 'fs63', 136)" class="i">Point</span>(<span onmouseout="hideTip(event, 'fs59', 137)" onmouseover="showTip(event, 'fs59', 137)" class="i">nVal</span>, <span class="i">Name</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs57', 138)" onmouseover="showTip(event, 'fs57', 138)" class="i">key</span>, <span class="i">Labels</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs61', 139)" onmouseover="showTip(event, 'fs61', 139)" class="i">nLab</span>) 
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 140)" onmouseover="showTip(event, 'fs62', 140)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs64', 141)" onmouseover="showTip(event, 'fs64', 141)" class="i">WithMarkers</span>(<span class="i">Size</span> <span class="o">=</span> <span class="n">15</span>))
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 142)" onmouseover="showTip(event, 'fs62', 142)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs65', 143)" onmouseover="showTip(event, 'fs65', 143)" class="i">Combine</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 144)" onmouseover="showTip(event, 'fs62', 144)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs66', 145)" onmouseover="showTip(event, 'fs66', 145)" class="i">WithTitle</span>
+           (<span onmouseout="hideTip(event, 'fs67', 146)" onmouseover="showTip(event, 'fs67', 146)" class="i">sprintf</span> <span class="s">&quot;</span><span class="s">PC</span><span class="s"> </span><span class="s">%</span><span class="s">i</span><span class="s"> </span><span class="s">(</span><span class="s">%</span><span class="s">.</span><span class="s">2</span><span class="s">f</span><span class="s">)</span><span class="s"> </span><span class="s">versus</span><span class="s"> </span><span class="s">PC</span><span class="s"> </span><span class="s">%</span><span class="s">i</span><span class="s"> </span><span class="s">(</span><span class="s">%</span><span class="s">.</span><span class="s">2</span><span class="s">f</span><span class="s">)</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs48', 147)" onmouseover="showTip(event, 'fs48', 147)" class="i">pComponent1</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs68', 148)" onmouseover="showTip(event, 'fs68', 148)" class="i">Index</span> 
+                (<span onmouseout="hideTip(event, 'fs48', 149)" onmouseover="showTip(event, 'fs48', 149)" class="i">pComponent1</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs69', 150)" onmouseover="showTip(event, 'fs69', 150)" class="i">Proportion</span> <span class="o">*</span> <span class="n">100.</span>) <span onmouseout="hideTip(event, 'fs49', 151)" onmouseover="showTip(event, 'fs49', 151)" class="i">pComponent2</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs68', 152)" onmouseover="showTip(event, 'fs68', 152)" class="i">Index</span> 
+                (<span onmouseout="hideTip(event, 'fs49', 153)" onmouseover="showTip(event, 'fs49', 153)" class="i">pComponent2</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs69', 154)" onmouseover="showTip(event, 'fs69', 154)" class="i">Proportion</span> <span class="o">*</span> <span class="n">100.</span>))
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 155)" onmouseover="showTip(event, 'fs62', 155)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 156)" onmouseover="showTip(event, 'fs70', 156)" class="i">ShowChart</span>
+
+<span class="c">// Plot loadings colored grouped by grouping function</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs71', 157)" onmouseover="showTip(event, 'fs71', 157)" class="i">plotScoresColoredByGrouping</span> (<span onmouseout="hideTip(event, 'fs72', 158)" onmouseover="showTip(event, 'fs72', 158)" class="i">transformedData</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs73', 159)" onmouseover="showTip(event, 'fs73', 159)" class="i">Matrix</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs4', 160)" onmouseover="showTip(event, 'fs4', 160)" class="i">float</span><span class="o">&gt;</span>) 
+    (<span onmouseout="hideTip(event, 'fs43', 161)" onmouseover="showTip(event, 'fs43', 161)" class="i">labels</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs44', 162)" onmouseover="showTip(event, 'fs44', 162)" class="i">seq</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs9', 163)" onmouseover="showTip(event, 'fs9', 163)" class="i">string</span><span class="o">&gt;</span>) (<span onmouseout="hideTip(event, 'fs45', 164)" onmouseover="showTip(event, 'fs45', 164)" class="i">grouping</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 165)" onmouseover="showTip(event, 'fs9', 165)" class="i">string</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 166)" onmouseover="showTip(event, 'fs9', 166)" class="i">string</span>) <span onmouseout="hideTip(event, 'fs46', 167)" onmouseover="showTip(event, 'fs46', 167)" class="i">pcIndex1</span> <span onmouseout="hideTip(event, 'fs47', 168)" onmouseover="showTip(event, 'fs47', 168)" class="i">pcIndex2</span> <span class="o">=</span> 
+    (<span onmouseout="hideTip(event, 'fs16', 169)" onmouseover="showTip(event, 'fs16', 169)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs50', 170)" onmouseover="showTip(event, 'fs50', 170)" class="i">zip3</span> (<span onmouseout="hideTip(event, 'fs72', 171)" onmouseover="showTip(event, 'fs72', 171)" class="i">transformedData</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 172)" onmouseover="showTip(event, 'fs74', 172)" class="i">Column</span>(<span onmouseout="hideTip(event, 'fs46', 173)" onmouseover="showTip(event, 'fs46', 173)" class="i">pcIndex1</span> <span class="o">-</span> <span class="n">1</span>)) 
+         (<span onmouseout="hideTip(event, 'fs72', 174)" onmouseover="showTip(event, 'fs72', 174)" class="i">transformedData</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 175)" onmouseover="showTip(event, 'fs74', 175)" class="i">Column</span>(<span onmouseout="hideTip(event, 'fs47', 176)" onmouseover="showTip(event, 'fs47', 176)" class="i">pcIndex2</span> <span class="o">-</span> <span class="n">1</span>)) <span onmouseout="hideTip(event, 'fs43', 177)" onmouseover="showTip(event, 'fs43', 177)" class="i">labels</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 178)" onmouseover="showTip(event, 'fs16', 178)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs52', 179)" onmouseover="showTip(event, 'fs52', 179)" class="i">groupBy</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs53', 180)" onmouseover="showTip(event, 'fs53', 180)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 181)" onmouseover="showTip(event, 'fs54', 181)" class="i">y</span>, <span onmouseout="hideTip(event, 'fs55', 182)" onmouseover="showTip(event, 'fs55', 182)" class="i">label</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs45', 183)" onmouseover="showTip(event, 'fs45', 183)" class="i">grouping</span> <span onmouseout="hideTip(event, 'fs55', 184)" onmouseover="showTip(event, 'fs55', 184)" class="i">label</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 185)" onmouseover="showTip(event, 'fs16', 185)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 186)" onmouseover="showTip(event, 'fs56', 186)" class="i">map</span> 
+           (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 187)" onmouseover="showTip(event, 'fs57', 187)" class="i">key</span>, <span onmouseout="hideTip(event, 'fs58', 188)" onmouseover="showTip(event, 'fs58', 188)" class="i">values</span>) <span class="k">-&gt;</span> 
+           <span class="k">let</span> <span onmouseout="hideTip(event, 'fs59', 189)" onmouseover="showTip(event, 'fs59', 189)" class="i">nVal</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs58', 190)" onmouseover="showTip(event, 'fs58', 190)" class="i">values</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 191)" onmouseover="showTip(event, 'fs16', 191)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 192)" onmouseover="showTip(event, 'fs56', 192)" class="i">map</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs53', 193)" onmouseover="showTip(event, 'fs53', 193)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 194)" onmouseover="showTip(event, 'fs54', 194)" class="i">y</span>, <span onmouseout="hideTip(event, 'fs60', 195)" onmouseover="showTip(event, 'fs60', 195)" class="i">l</span>) <span class="k">-&gt;</span> (<span onmouseout="hideTip(event, 'fs53', 196)" onmouseover="showTip(event, 'fs53', 196)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 197)" onmouseover="showTip(event, 'fs54', 197)" class="i">y</span>))
+           <span class="k">let</span> <span onmouseout="hideTip(event, 'fs61', 198)" onmouseover="showTip(event, 'fs61', 198)" class="i">nLab</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs58', 199)" onmouseover="showTip(event, 'fs58', 199)" class="i">values</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 200)" onmouseover="showTip(event, 'fs16', 200)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 201)" onmouseover="showTip(event, 'fs56', 201)" class="i">map</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs53', 202)" onmouseover="showTip(event, 'fs53', 202)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 203)" onmouseover="showTip(event, 'fs54', 203)" class="i">y</span>, <span onmouseout="hideTip(event, 'fs60', 204)" onmouseover="showTip(event, 'fs60', 204)" class="i">l</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs60', 205)" onmouseover="showTip(event, 'fs60', 205)" class="i">l</span>)
+           <span onmouseout="hideTip(event, 'fs62', 206)" onmouseover="showTip(event, 'fs62', 206)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs63', 207)" onmouseover="showTip(event, 'fs63', 207)" class="i">Point</span>(<span onmouseout="hideTip(event, 'fs59', 208)" onmouseover="showTip(event, 'fs59', 208)" class="i">nVal</span>, <span class="i">Name</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs57', 209)" onmouseover="showTip(event, 'fs57', 209)" class="i">key</span>, <span class="i">Labels</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs61', 210)" onmouseover="showTip(event, 'fs61', 210)" class="i">nLab</span>) 
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 211)" onmouseover="showTip(event, 'fs62', 211)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs64', 212)" onmouseover="showTip(event, 'fs64', 212)" class="i">WithMarkers</span>(<span class="i">Size</span> <span class="o">=</span> <span class="n">15</span>))
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 213)" onmouseover="showTip(event, 'fs62', 213)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs65', 214)" onmouseover="showTip(event, 'fs65', 214)" class="i">Combine</span>    
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 215)" onmouseover="showTip(event, 'fs62', 215)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 216)" onmouseover="showTip(event, 'fs70', 216)" class="i">ShowChart</span>
+
+<span onmouseout="hideTip(event, 'fs40', 217)" onmouseover="showTip(event, 'fs40', 217)" class="i">plotLoadingsColoredByGrouping</span> <span onmouseout="hideTip(event, 'fs32', 218)" onmouseover="showTip(event, 'fs32', 218)" class="i">irisPCA</span> 
+    [ <span class="s">&quot;</span><span class="s">Sepal</span><span class="s"> </span><span class="s">length</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">Sepal</span><span class="s"> </span><span class="s">width</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">Petal</span><span class="s"> </span><span class="s">length</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">Petal</span><span class="s"> </span><span class="s">width</span><span class="s">&quot;</span> ] 
+    (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs75', 219)" onmouseover="showTip(event, 'fs75', 219)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs75', 220)" onmouseover="showTip(event, 'fs75', 220)" class="i">x</span>) <span class="n">1</span> <span class="n">2</span>
+<span onmouseout="hideTip(event, 'fs71', 221)" onmouseover="showTip(event, 'fs71', 221)" class="i">plotScoresColoredByGrouping</span> <span onmouseout="hideTip(event, 'fs34', 222)" onmouseover="showTip(event, 'fs34', 222)" class="i">irisDataPCA</span> <span onmouseout="hideTip(event, 'fs25', 223)" onmouseover="showTip(event, 'fs25', 223)" class="i">irisLables</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs75', 224)" onmouseover="showTip(event, 'fs75', 224)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs75', 225)" onmouseover="showTip(event, 'fs75', 225)" class="i">x</span>) <span class="n">1</span> <span class="n">2</span>
+
+<span class="c">// ---------------</span>
+<span class="c">// Scattern matrix plot</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs76', 226)" onmouseover="showTip(event, 'fs76', 226)" class="i">plotScatternMatrixColoredByGrouping</span> (<span onmouseout="hideTip(event, 'fs77', 227)" onmouseover="showTip(event, 'fs77', 227)" class="i">inputMatrix</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs73', 228)" onmouseover="showTip(event, 'fs73', 228)" class="i">Matrix</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs4', 229)" onmouseover="showTip(event, 'fs4', 229)" class="i">float</span><span class="o">&gt;</span>) 
+    (<span onmouseout="hideTip(event, 'fs43', 230)" onmouseover="showTip(event, 'fs43', 230)" class="i">labels</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs44', 231)" onmouseover="showTip(event, 'fs44', 231)" class="i">seq</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs9', 232)" onmouseover="showTip(event, 'fs9', 232)" class="i">string</span><span class="o">&gt;</span>) (<span onmouseout="hideTip(event, 'fs45', 233)" onmouseover="showTip(event, 'fs45', 233)" class="i">grouping</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 234)" onmouseover="showTip(event, 'fs9', 234)" class="i">string</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 235)" onmouseover="showTip(event, 'fs9', 235)" class="i">string</span>) <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs77', 236)" onmouseover="showTip(event, 'fs77', 236)" class="i">inputMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs78', 237)" onmouseover="showTip(event, 'fs78', 237)" class="i">ColumnEnumerator</span>()
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 238)" onmouseover="showTip(event, 'fs16', 238)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs79', 239)" onmouseover="showTip(event, 'fs79', 239)" class="i">collect</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs80', 240)" onmouseover="showTip(event, 'fs80', 240)" class="i">i</span>, <span onmouseout="hideTip(event, 'fs81', 241)" onmouseover="showTip(event, 'fs81', 241)" class="i">outerColumn</span>) <span class="k">-&gt;</span> 
+           <span onmouseout="hideTip(event, 'fs77', 242)" onmouseover="showTip(event, 'fs77', 242)" class="i">inputMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs78', 243)" onmouseover="showTip(event, 'fs78', 243)" class="i">ColumnEnumerator</span>()
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 244)" onmouseover="showTip(event, 'fs16', 244)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 245)" onmouseover="showTip(event, 'fs56', 245)" class="i">map</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs82', 246)" onmouseover="showTip(event, 'fs82', 246)" class="i">ii</span>, <span onmouseout="hideTip(event, 'fs83', 247)" onmouseover="showTip(event, 'fs83', 247)" class="i">innerColumn</span>) <span class="k">-&gt;</span> 
+                  (<span onmouseout="hideTip(event, 'fs16', 248)" onmouseover="showTip(event, 'fs16', 248)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs50', 249)" onmouseover="showTip(event, 'fs50', 249)" class="i">zip3</span> <span onmouseout="hideTip(event, 'fs81', 250)" onmouseover="showTip(event, 'fs81', 250)" class="i">outerColumn</span> <span onmouseout="hideTip(event, 'fs83', 251)" onmouseover="showTip(event, 'fs83', 251)" class="i">innerColumn</span> <span onmouseout="hideTip(event, 'fs43', 252)" onmouseover="showTip(event, 'fs43', 252)" class="i">labels</span>)
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 253)" onmouseover="showTip(event, 'fs16', 253)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs52', 254)" onmouseover="showTip(event, 'fs52', 254)" class="i">groupBy</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs53', 255)" onmouseover="showTip(event, 'fs53', 255)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 256)" onmouseover="showTip(event, 'fs54', 256)" class="i">y</span>, <span onmouseout="hideTip(event, 'fs55', 257)" onmouseover="showTip(event, 'fs55', 257)" class="i">label</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs45', 258)" onmouseover="showTip(event, 'fs45', 258)" class="i">grouping</span> <span onmouseout="hideTip(event, 'fs55', 259)" onmouseover="showTip(event, 'fs55', 259)" class="i">label</span>)
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 260)" onmouseover="showTip(event, 'fs16', 260)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 261)" onmouseover="showTip(event, 'fs56', 261)" class="i">map</span> 
+                         (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 262)" onmouseover="showTip(event, 'fs57', 262)" class="i">key</span>, <span onmouseout="hideTip(event, 'fs58', 263)" onmouseover="showTip(event, 'fs58', 263)" class="i">values</span>) <span class="k">-&gt;</span> 
+                         <span class="k">let</span> <span onmouseout="hideTip(event, 'fs59', 264)" onmouseover="showTip(event, 'fs59', 264)" class="i">nVal</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs58', 265)" onmouseover="showTip(event, 'fs58', 265)" class="i">values</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 266)" onmouseover="showTip(event, 'fs16', 266)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 267)" onmouseover="showTip(event, 'fs56', 267)" class="i">map</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs53', 268)" onmouseover="showTip(event, 'fs53', 268)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 269)" onmouseover="showTip(event, 'fs54', 269)" class="i">y</span>, <span onmouseout="hideTip(event, 'fs60', 270)" onmouseover="showTip(event, 'fs60', 270)" class="i">l</span>) <span class="k">-&gt;</span> (<span onmouseout="hideTip(event, 'fs53', 271)" onmouseover="showTip(event, 'fs53', 271)" class="i">x</span>, <span onmouseout="hideTip(event, 'fs54', 272)" onmouseover="showTip(event, 'fs54', 272)" class="i">y</span>))
+                         <span onmouseout="hideTip(event, 'fs62', 273)" onmouseover="showTip(event, 'fs62', 273)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs63', 274)" onmouseover="showTip(event, 'fs63', 274)" class="i">Point</span>
+                             (<span onmouseout="hideTip(event, 'fs59', 275)" onmouseover="showTip(event, 'fs59', 275)" class="i">nVal</span>, 
+                              <span class="i">Name</span> <span class="o">=</span> (<span onmouseout="hideTip(event, 'fs67', 276)" onmouseover="showTip(event, 'fs67', 276)" class="i">sprintf</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">s</span><span class="s">%</span><span class="s">i</span><span class="s">:</span><span class="s">%</span><span class="s">i</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs57', 277)" onmouseover="showTip(event, 'fs57', 277)" class="i">key</span> (<span onmouseout="hideTip(event, 'fs80', 278)" onmouseover="showTip(event, 'fs80', 278)" class="i">i</span> <span class="o">+</span> <span class="n">1</span>) (<span onmouseout="hideTip(event, 'fs82', 279)" onmouseover="showTip(event, 'fs82', 279)" class="i">ii</span> <span class="o">+</span> <span class="n">1</span>))))
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 280)" onmouseover="showTip(event, 'fs62', 280)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs65', 281)" onmouseover="showTip(event, 'fs65', 281)" class="i">Combine</span>
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 282)" onmouseover="showTip(event, 'fs62', 282)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs66', 283)" onmouseover="showTip(event, 'fs66', 283)" class="i">WithTitle</span>((<span onmouseout="hideTip(event, 'fs67', 284)" onmouseover="showTip(event, 'fs67', 284)" class="i">sprintf</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">i</span><span class="s"> </span><span class="s">:</span><span class="s"> </span><span class="s">%</span><span class="s">i</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs80', 285)" onmouseover="showTip(event, 'fs80', 285)" class="i">i</span> <span class="o">+</span> <span class="n">1</span>) (<span onmouseout="hideTip(event, 'fs82', 286)" onmouseover="showTip(event, 'fs82', 286)" class="i">ii</span> <span class="o">+</span> <span class="n">1</span>)))
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 287)" onmouseover="showTip(event, 'fs62', 287)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs64', 288)" onmouseover="showTip(event, 'fs64', 288)" class="i">WithMarkers</span>(<span class="i">Style</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs84', 289)" onmouseover="showTip(event, 'fs84', 289)" class="i">ChartTypes</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs85', 290)" onmouseover="showTip(event, 'fs85', 290)" class="i">MarkerStyle</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs86', 291)" onmouseover="showTip(event, 'fs86', 291)" class="i">Circle</span>))
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 292)" onmouseover="showTip(event, 'fs16', 292)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 293)" onmouseover="showTip(event, 'fs17', 293)" class="i">toList</span>
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 294)" onmouseover="showTip(event, 'fs22', 294)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs87', 295)" onmouseover="showTip(event, 'fs87', 295)" class="i">rev</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 296)" onmouseover="showTip(event, 'fs62', 296)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs88', 297)" onmouseover="showTip(event, 'fs88', 297)" class="i">RowsWithBreak</span> <span onmouseout="hideTip(event, 'fs77', 298)" onmouseover="showTip(event, 'fs77', 298)" class="i">inputMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs89', 299)" onmouseover="showTip(event, 'fs89', 299)" class="i">ColumnCount</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 300)" onmouseover="showTip(event, 'fs62', 300)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 301)" onmouseover="showTip(event, 'fs70', 301)" class="i">ShowChart</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs90', 302)" onmouseover="showTip(event, 'fs90', 302)" class="i">plotScatternMatrix</span> (<span onmouseout="hideTip(event, 'fs77', 303)" onmouseover="showTip(event, 'fs77', 303)" class="i">inputMatrix</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs73', 304)" onmouseover="showTip(event, 'fs73', 304)" class="i">Matrix</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs4', 305)" onmouseover="showTip(event, 'fs4', 305)" class="i">float</span><span class="o">&gt;</span>) <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs77', 306)" onmouseover="showTip(event, 'fs77', 306)" class="i">inputMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs78', 307)" onmouseover="showTip(event, 'fs78', 307)" class="i">ColumnEnumerator</span>()
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 308)" onmouseover="showTip(event, 'fs16', 308)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs79', 309)" onmouseover="showTip(event, 'fs79', 309)" class="i">collect</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs80', 310)" onmouseover="showTip(event, 'fs80', 310)" class="i">i</span>, <span onmouseout="hideTip(event, 'fs81', 311)" onmouseover="showTip(event, 'fs81', 311)" class="i">outerColumn</span>) <span class="k">-&gt;</span> 
+           <span onmouseout="hideTip(event, 'fs77', 312)" onmouseover="showTip(event, 'fs77', 312)" class="i">inputMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs78', 313)" onmouseover="showTip(event, 'fs78', 313)" class="i">ColumnEnumerator</span>()
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 314)" onmouseover="showTip(event, 'fs16', 314)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 315)" onmouseover="showTip(event, 'fs56', 315)" class="i">map</span> 
+                  (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs82', 316)" onmouseover="showTip(event, 'fs82', 316)" class="i">ii</span>, <span onmouseout="hideTip(event, 'fs83', 317)" onmouseover="showTip(event, 'fs83', 317)" class="i">innerColumn</span>) <span class="k">-&gt;</span> 
+                  <span onmouseout="hideTip(event, 'fs62', 318)" onmouseover="showTip(event, 'fs62', 318)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs63', 319)" onmouseover="showTip(event, 'fs63', 319)" class="i">Point</span>(<span onmouseout="hideTip(event, 'fs16', 320)" onmouseover="showTip(event, 'fs16', 320)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs91', 321)" onmouseover="showTip(event, 'fs91', 321)" class="i">zip</span> <span onmouseout="hideTip(event, 'fs81', 322)" onmouseover="showTip(event, 'fs81', 322)" class="i">outerColumn</span> <span onmouseout="hideTip(event, 'fs83', 323)" onmouseover="showTip(event, 'fs83', 323)" class="i">innerColumn</span>)
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 324)" onmouseover="showTip(event, 'fs62', 324)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs66', 325)" onmouseover="showTip(event, 'fs66', 325)" class="i">WithTitle</span>((<span onmouseout="hideTip(event, 'fs67', 326)" onmouseover="showTip(event, 'fs67', 326)" class="i">sprintf</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">i</span><span class="s"> </span><span class="s">:</span><span class="s"> </span><span class="s">%</span><span class="s">i</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs80', 327)" onmouseover="showTip(event, 'fs80', 327)" class="i">i</span> <span class="o">+</span> <span class="n">1</span>) (<span onmouseout="hideTip(event, 'fs82', 328)" onmouseover="showTip(event, 'fs82', 328)" class="i">ii</span> <span class="o">+</span> <span class="n">1</span>)))
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 329)" onmouseover="showTip(event, 'fs62', 329)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs64', 330)" onmouseover="showTip(event, 'fs64', 330)" class="i">WithMarkers</span>
+                         (<span class="i">Color</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs92', 331)" onmouseover="showTip(event, 'fs92', 331)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs93', 332)" onmouseover="showTip(event, 'fs93', 332)" class="i">Drawing</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs94', 333)" onmouseover="showTip(event, 'fs94', 333)" class="i">Color</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs95', 334)" onmouseover="showTip(event, 'fs95', 334)" class="i">DarkGray</span>, 
+                          <span class="i">Style</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs84', 335)" onmouseover="showTip(event, 'fs84', 335)" class="i">ChartTypes</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs85', 336)" onmouseover="showTip(event, 'fs85', 336)" class="i">MarkerStyle</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs86', 337)" onmouseover="showTip(event, 'fs86', 337)" class="i">Circle</span>))
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 338)" onmouseover="showTip(event, 'fs16', 338)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 339)" onmouseover="showTip(event, 'fs17', 339)" class="i">toList</span>
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 340)" onmouseover="showTip(event, 'fs22', 340)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs87', 341)" onmouseover="showTip(event, 'fs87', 341)" class="i">rev</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 342)" onmouseover="showTip(event, 'fs62', 342)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs88', 343)" onmouseover="showTip(event, 'fs88', 343)" class="i">RowsWithBreak</span> <span onmouseout="hideTip(event, 'fs77', 344)" onmouseover="showTip(event, 'fs77', 344)" class="i">inputMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs89', 345)" onmouseover="showTip(event, 'fs89', 345)" class="i">ColumnCount</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 346)" onmouseover="showTip(event, 'fs62', 346)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 347)" onmouseover="showTip(event, 'fs70', 347)" class="i">ShowChart</span>
+
+<span onmouseout="hideTip(event, 'fs90', 348)" onmouseover="showTip(event, 'fs90', 348)" class="i">plotScatternMatrix</span> <span onmouseout="hideTip(event, 'fs26', 349)" onmouseover="showTip(event, 'fs26', 349)" class="i">irisFeaturesMatrix</span>
+<span onmouseout="hideTip(event, 'fs76', 350)" onmouseover="showTip(event, 'fs76', 350)" class="i">plotScatternMatrixColoredByGrouping</span> <span onmouseout="hideTip(event, 'fs26', 351)" onmouseover="showTip(event, 'fs26', 351)" class="i">irisFeaturesMatrix</span> <span onmouseout="hideTip(event, 'fs25', 352)" onmouseover="showTip(event, 'fs25', 352)" class="i">irisLables</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs75', 353)" onmouseover="showTip(event, 'fs75', 353)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs75', 354)" onmouseover="showTip(event, 'fs75', 354)" class="i">x</span>)
+
+<span class="c">// ---------------</span>
+<span class="c">// Kmeans clustering</span>
+<span class="c">// For random cluster inititalization use randomInitFactory:</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs96', 355)" onmouseover="showTip(event, 'fs96', 355)" class="i">rng</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs92', 356)" onmouseover="showTip(event, 'fs92', 356)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs97', 357)" onmouseover="showTip(event, 'fs97', 357)" class="i">Random</span>()
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs98', 358)" onmouseover="showTip(event, 'fs98', 358)" class="i">randomInitFactory</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs99', 359)" onmouseover="showTip(event, 'fs99', 359)" class="i">IterativeClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs100', 360)" onmouseover="showTip(event, 'fs100', 360)" class="i">CentroidsFactory</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs4', 361)" onmouseover="showTip(event, 'fs4', 361)" class="i">float</span> []<span class="o">&gt;</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs99', 362)" onmouseover="showTip(event, 'fs99', 362)" class="i">IterativeClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs101', 363)" onmouseover="showTip(event, 'fs101', 363)" class="i">randomCentroids</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs4', 364)" onmouseover="showTip(event, 'fs4', 364)" class="i">float</span> []<span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs96', 365)" onmouseover="showTip(event, 'fs96', 365)" class="i">rng</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs102', 366)" onmouseover="showTip(event, 'fs102', 366)" class="i">cvmaxFactory</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs99', 367)" onmouseover="showTip(event, 'fs99', 367)" class="i">IterativeClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs100', 368)" onmouseover="showTip(event, 'fs100', 368)" class="i">CentroidsFactory</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs4', 369)" onmouseover="showTip(event, 'fs4', 369)" class="i">float</span> []<span class="o">&gt;</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs99', 370)" onmouseover="showTip(event, 'fs99', 370)" class="i">IterativeClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs103', 371)" onmouseover="showTip(event, 'fs103', 371)" class="i">intitCVMAX</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs104', 372)" onmouseover="showTip(event, 'fs104', 372)" class="i">kmeansResult</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs99', 373)" onmouseover="showTip(event, 'fs99', 373)" class="i">IterativeClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs105', 374)" onmouseover="showTip(event, 'fs105', 374)" class="i">kmeans</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs106', 375)" onmouseover="showTip(event, 'fs106', 375)" class="i">DistanceMetrics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs107', 376)" onmouseover="showTip(event, 'fs107', 376)" class="i">euclidean</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs102', 377)" onmouseover="showTip(event, 'fs102', 377)" class="i">cvmaxFactory</span> 
+    <span class="o">&lt;|</span> (<span onmouseout="hideTip(event, 'fs73', 378)" onmouseover="showTip(event, 'fs73', 378)" class="i">Matrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs108', 379)" onmouseover="showTip(event, 'fs108', 379)" class="i">toJaggedArrayRowWise</span> <span onmouseout="hideTip(event, 'fs26', 380)" onmouseover="showTip(event, 'fs26', 380)" class="i">irisFeaturesMatrix</span>) <span class="o">&lt;|</span> <span class="n">3</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs109', 381)" onmouseover="showTip(event, 'fs109', 381)" class="i">chartsOfClassifiedData</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs73', 382)" onmouseover="showTip(event, 'fs73', 382)" class="i">Matrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs108', 383)" onmouseover="showTip(event, 'fs108', 383)" class="i">toJaggedArrayRowWise</span> <span onmouseout="hideTip(event, 'fs26', 384)" onmouseover="showTip(event, 'fs26', 384)" class="i">irisFeaturesMatrix</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 385)" onmouseover="showTip(event, 'fs16', 385)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs52', 386)" onmouseover="showTip(event, 'fs52', 386)" class="i">groupBy</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs110', 387)" onmouseover="showTip(event, 'fs110', 387)" class="i">dataPoint</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs111', 388)" onmouseover="showTip(event, 'fs111', 388)" class="i">fst</span> (<span onmouseout="hideTip(event, 'fs104', 389)" onmouseover="showTip(event, 'fs104', 389)" class="i">kmeansResult</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs112', 390)" onmouseover="showTip(event, 'fs112', 390)" class="i">Classifier</span> <span onmouseout="hideTip(event, 'fs110', 391)" onmouseover="showTip(event, 'fs110', 391)" class="i">dataPoint</span>))
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 392)" onmouseover="showTip(event, 'fs16', 392)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs113', 393)" onmouseover="showTip(event, 'fs113', 393)" class="i">sortBy</span> <span onmouseout="hideTip(event, 'fs111', 394)" onmouseover="showTip(event, 'fs111', 394)" class="i">fst</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 395)" onmouseover="showTip(event, 'fs16', 395)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 396)" onmouseover="showTip(event, 'fs56', 396)" class="i">map</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs114', 397)" onmouseover="showTip(event, 'fs114', 397)" class="i">key</span>, <span onmouseout="hideTip(event, 'fs115', 398)" onmouseover="showTip(event, 'fs115', 398)" class="i">values</span>) <span class="k">-&gt;</span> 
+           <span onmouseout="hideTip(event, 'fs115', 399)" onmouseover="showTip(event, 'fs115', 399)" class="i">values</span>
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 400)" onmouseover="showTip(event, 'fs16', 400)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 401)" onmouseover="showTip(event, 'fs56', 401)" class="i">map</span> 
+                  (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs116', 402)" onmouseover="showTip(event, 'fs116', 402)" class="i">v</span> <span class="k">-&gt;</span> 
+                  <span onmouseout="hideTip(event, 'fs62', 403)" onmouseover="showTip(event, 'fs62', 403)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs117', 404)" onmouseover="showTip(event, 'fs117', 404)" class="i">Line</span> <span onmouseout="hideTip(event, 'fs116', 405)" onmouseover="showTip(event, 'fs116', 405)" class="i">v</span> 
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 406)" onmouseover="showTip(event, 'fs62', 406)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs118', 407)" onmouseover="showTip(event, 'fs118', 407)" class="i">WithStyling</span>
+                         (<span class="i">Color</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs92', 408)" onmouseover="showTip(event, 'fs92', 408)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs93', 409)" onmouseover="showTip(event, 'fs93', 409)" class="i">Drawing</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs94', 410)" onmouseover="showTip(event, 'fs94', 410)" class="i">Color</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs119', 411)" onmouseover="showTip(event, 'fs119', 411)" class="i">Silver</span>, <span class="i">BorderWidth</span> <span class="o">=</span> <span class="n">1</span>))
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 412)" onmouseover="showTip(event, 'fs62', 412)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs65', 413)" onmouseover="showTip(event, 'fs65', 413)" class="i">Combine</span>
+           <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 414)" onmouseover="showTip(event, 'fs62', 414)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs66', 415)" onmouseover="showTip(event, 'fs66', 415)" class="i">WithTitle</span>(<span onmouseout="hideTip(event, 'fs114', 416)" onmouseover="showTip(event, 'fs114', 416)" class="i">key</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs120', 417)" onmouseover="showTip(event, 'fs120', 417)" class="i">ToString</span>()))
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 418)" onmouseover="showTip(event, 'fs62', 418)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs121', 419)" onmouseover="showTip(event, 'fs121', 419)" class="i">Rows</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 420)" onmouseover="showTip(event, 'fs62', 420)" class="i">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 421)" onmouseover="showTip(event, 'fs70', 421)" class="i">ShowChart</span>
+
+<span class="c">// ---------------</span>
+<span class="c">// Hieracical clustering</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs122', 422)" onmouseover="showTip(event, 'fs122', 422)" class="i">clusterTree</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs123', 423)" onmouseover="showTip(event, 'fs123', 423)" class="i">HierarchivalClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs124', 424)" onmouseover="showTip(event, 'fs124', 424)" class="i">generate</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs4', 425)" onmouseover="showTip(event, 'fs4', 425)" class="i">float</span> <span onmouseout="hideTip(event, 'fs125', 426)" onmouseover="showTip(event, 'fs125', 426)" class="i">list</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs106', 427)" onmouseover="showTip(event, 'fs106', 427)" class="i">DistanceMetrics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs107', 428)" onmouseover="showTip(event, 'fs107', 428)" class="i">euclidean</span> 
+        <span onmouseout="hideTip(event, 'fs123', 429)" onmouseover="showTip(event, 'fs123', 429)" class="i">HierarchivalClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs126', 430)" onmouseover="showTip(event, 'fs126', 430)" class="i">Linker</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs127', 431)" onmouseover="showTip(event, 'fs127', 431)" class="i">weightedGroupAverageLwLinker</span> <span onmouseout="hideTip(event, 'fs21', 432)" onmouseover="showTip(event, 'fs21', 432)" class="i">irisFeatures</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs128', 433)" onmouseover="showTip(event, 'fs128', 433)" class="i">get</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs123', 434)" onmouseover="showTip(event, 'fs123', 434)" class="i">HierarchivalClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs129', 435)" onmouseover="showTip(event, 'fs129', 435)" class="i">getClusterMemberLabels</span> <span onmouseout="hideTip(event, 'fs122', 436)" onmouseover="showTip(event, 'fs122', 436)" class="i">clusterTree</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs130', 437)" onmouseover="showTip(event, 'fs130', 437)" class="i">tmp</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs128', 438)" onmouseover="showTip(event, 'fs128', 438)" class="i">get</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 439)" onmouseover="showTip(event, 'fs22', 439)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs23', 440)" onmouseover="showTip(event, 'fs23', 440)" class="i">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs131', 441)" onmouseover="showTip(event, 'fs131', 441)" class="i">l</span> <span class="k">-&gt;</span> 
+           ((<span onmouseout="hideTip(event, 'fs22', 442)" onmouseover="showTip(event, 'fs22', 442)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs132', 443)" onmouseover="showTip(event, 'fs132', 443)" class="i">nth</span> <span onmouseout="hideTip(event, 'fs131', 444)" onmouseover="showTip(event, 'fs131', 444)" class="i">l</span> <span class="n">2</span>), 
+            (<span onmouseout="hideTip(event, 'fs131', 445)" onmouseover="showTip(event, 'fs131', 445)" class="i">l</span>
+             <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 446)" onmouseover="showTip(event, 'fs22', 446)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs87', 447)" onmouseover="showTip(event, 'fs87', 447)" class="i">rev</span>
+             <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 448)" onmouseover="showTip(event, 'fs22', 448)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs133', 449)" onmouseover="showTip(event, 'fs133', 449)" class="i">head</span>)))
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 450)" onmouseover="showTip(event, 'fs22', 450)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs134', 451)" onmouseover="showTip(event, 'fs134', 451)" class="i">sortBy</span> <span onmouseout="hideTip(event, 'fs135', 452)" onmouseover="showTip(event, 'fs135', 452)" class="i">snd</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs136', 453)" onmouseover="showTip(event, 'fs136', 453)" class="i">test</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs16', 454)" onmouseover="showTip(event, 'fs16', 454)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs91', 455)" onmouseover="showTip(event, 'fs91', 455)" class="i">zip</span> (<span onmouseout="hideTip(event, 'fs130', 456)" onmouseover="showTip(event, 'fs130', 456)" class="i">tmp</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 457)" onmouseover="showTip(event, 'fs16', 457)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 458)" onmouseover="showTip(event, 'fs56', 458)" class="i">map</span> <span onmouseout="hideTip(event, 'fs111', 459)" onmouseover="showTip(event, 'fs111', 459)" class="i">fst</span>) <span onmouseout="hideTip(event, 'fs25', 460)" onmouseover="showTip(event, 'fs25', 460)" class="i">irisLables</span>
+
+<span onmouseout="hideTip(event, 'fs136', 461)" onmouseover="showTip(event, 'fs136', 461)" class="i">test</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 462)" onmouseover="showTip(event, 'fs16', 462)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs137', 463)" onmouseover="showTip(event, 'fs137', 463)" class="i">countBy</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs138', 464)" onmouseover="showTip(event, 'fs138', 464)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs138', 465)" onmouseover="showTip(event, 'fs138', 465)" class="i">x</span>)
+<span onmouseout="hideTip(event, 'fs123', 466)" onmouseover="showTip(event, 'fs123', 466)" class="i">HierarchivalClustering</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs139', 467)" onmouseover="showTip(event, 'fs139', 467)" class="i">printHClust</span> <span onmouseout="hideTip(event, 'fs122', 468)" onmouseover="showTip(event, 'fs122', 468)" class="i">clusterTree</span> 
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 469)" onmouseover="showTip(event, 'fs16', 469)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs140', 470)" onmouseover="showTip(event, 'fs140', 470)" class="i">write</span> <span class="s">&quot;</span><span class="s">D</span><span class="s">:</span><span class="s">/</span><span class="s">mySite</span><span class="s">/</span><span class="s">test2</span><span class="s">.</span><span class="s">json</span><span class="s">&quot;</span>
+
+
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs141', 471)" onmouseover="showTip(event, 'fs141', 471)" class="i">FSharpBio</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs142', 472)" onmouseover="showTip(event, 'fs142', 472)" class="i">Statistics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs143', 473)" onmouseover="showTip(event, 'fs143', 473)" class="i">Descriptive</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs144', 474)" onmouseover="showTip(event, 'fs144', 474)" class="i">StatisticalMeasure</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs145', 475)" onmouseover="showTip(event, 'fs145', 475)" class="i">words</span> <span class="o">=</span> 
+    [ <span class="s">&quot;</span><span class="s">bag</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">across</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">on</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">insane</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">by</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">monastery</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">relief</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">slope</span><span class="s">&quot;</span>; 
+      <span class="s">&quot;</span><span class="s">scoundrel</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">with</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">neither</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">pretentious</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">solid</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">this</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">for</span><span class="s">&quot;</span>; 
+      <span class="s">&quot;</span><span class="s">therefore</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">generality</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">arise</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">blot</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">infectious</span><span class="s">&quot;</span> ]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs146', 476)" onmouseover="showTip(event, 'fs146', 476)" class="i">wordLength</span> <span class="o">=</span> 
+    [ <span class="n">3.</span>; <span class="n">6.</span>; <span class="n">2.</span>; <span class="n">6.</span>; <span class="n">2.</span>; <span class="n">9.</span>; <span class="n">6.</span>; <span class="n">5.</span>; <span class="n">9.</span>; <span class="n">4.</span>; <span class="n">7.</span>; <span class="n">11.</span>; <span class="n">5.</span>; <span class="n">4.</span>; <span class="n">3.</span>; <span class="n">9.</span>; <span class="n">10.</span>; <span class="n">5.</span>; 
+      <span class="n">4.</span>; <span class="n">10.</span> ]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs147', 477)" onmouseover="showTip(event, 'fs147', 477)" class="i">numberOfLines</span> <span class="o">=</span> 
+    [ <span class="n">14.</span>; <span class="n">7.</span>; <span class="n">11.</span>; <span class="n">9.</span>; <span class="n">9.</span>; <span class="n">4.</span>; <span class="n">8.</span>; <span class="n">11.</span>; <span class="n">5.</span>; <span class="n">8.</span>; <span class="n">2.</span>; <span class="n">4.</span>; <span class="n">12.</span>; <span class="n">9.</span>; <span class="n">8.</span>; <span class="n">1.</span>; <span class="n">4.</span>; 
+      <span class="n">13.</span>; <span class="n">15.</span>; <span class="n">6.</span> ]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs148', 478)" onmouseover="showTip(event, 'fs148', 478)" class="i">wordFrequency</span> <span class="o">=</span> 
+    [ <span class="n">8.</span>; <span class="n">230.</span>; <span class="n">700.</span>; <span class="n">1.</span>; <span class="n">500.</span>; <span class="n">1.</span>; <span class="n">9.</span>; <span class="n">2.</span>; <span class="n">1.</span>; <span class="n">700.</span>; <span class="n">7.</span>; <span class="n">1.</span>; <span class="n">4.</span>; <span class="n">500.</span>; <span class="n">900.</span>; <span class="n">3.</span>; 
+      <span class="n">1.</span>; <span class="n">10.</span>; <span class="n">1.</span>; <span class="n">1.</span> ]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs149', 479)" onmouseover="showTip(event, 'fs149', 479)" class="i">wordEntries</span> <span class="o">=</span> 
+    [ <span class="n">6.</span>; <span class="n">3.</span>; <span class="n">12.</span>; <span class="n">2.</span>; <span class="n">7.</span>; <span class="n">1.</span>; <span class="n">1.</span>; <span class="n">6.</span>; <span class="n">1.</span>; <span class="n">5.</span>; <span class="n">2.</span>; <span class="n">1.</span>; <span class="n">5.</span>; <span class="n">9.</span>; <span class="n">7.</span>; <span class="n">1.</span>; <span class="n">1.</span>; <span class="n">4.</span>; 
+      <span class="n">4.</span>; <span class="n">2.</span>; ]
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs150', 480)" onmouseover="showTip(event, 'fs150', 480)" class="i">wordDataSet</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs27', 481)" onmouseover="showTip(event, 'fs27', 481)" class="i">DenseMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs151', 482)" onmouseover="showTip(event, 'fs151', 482)" class="i">ofColumnsList</span> (<span onmouseout="hideTip(event, 'fs145', 483)" onmouseover="showTip(event, 'fs145', 483)" class="i">words</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs152', 484)" onmouseover="showTip(event, 'fs152', 484)" class="i">Length</span>) <span class="n">2</span> [ <span onmouseout="hideTip(event, 'fs146', 485)" onmouseover="showTip(event, 'fs146', 485)" class="i">wordLength</span>; <span onmouseout="hideTip(event, 'fs147', 486)" onmouseover="showTip(event, 'fs147', 486)" class="i">numberOfLines</span> ]
+ <span class="c">//wordFrequency;wordEntries]</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs153', 487)" onmouseover="showTip(event, 'fs153', 487)" class="i">adjCenterWordPCA</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 488)" onmouseover="showTip(event, 'fs30', 488)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs31', 489)" onmouseover="showTip(event, 'fs31', 489)" class="i">toAdjustCenter</span> <span onmouseout="hideTip(event, 'fs150', 490)" onmouseover="showTip(event, 'fs150', 490)" class="i">wordDataSet</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs154', 491)" onmouseover="showTip(event, 'fs154', 491)" class="i">wordPCA</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 492)" onmouseover="showTip(event, 'fs30', 492)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs33', 493)" onmouseover="showTip(event, 'fs33', 493)" class="i">compute</span> <span onmouseout="hideTip(event, 'fs153', 494)" onmouseover="showTip(event, 'fs153', 494)" class="i">adjCenterWordPCA</span> <span onmouseout="hideTip(event, 'fs150', 495)" onmouseover="showTip(event, 'fs150', 495)" class="i">wordDataSet</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs155', 496)" onmouseover="showTip(event, 'fs155', 496)" class="i">V</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 497)" onmouseover="showTip(event, 'fs30', 497)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs156', 498)" onmouseover="showTip(event, 'fs156', 498)" class="i">getFeatureMatrixOfComponents</span> <span onmouseout="hideTip(event, 'fs154', 499)" onmouseover="showTip(event, 'fs154', 499)" class="i">wordPCA</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs157', 500)" onmouseover="showTip(event, 'fs157', 500)" class="i">variables</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs153', 501)" onmouseover="showTip(event, 'fs153', 501)" class="i">adjCenterWordPCA</span> <span onmouseout="hideTip(event, 'fs30', 502)" onmouseover="showTip(event, 'fs30', 502)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs158', 503)" onmouseover="showTip(event, 'fs158', 503)" class="i">AdjustmentDirection</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs159', 504)" onmouseover="showTip(event, 'fs159', 504)" class="i">Obverse</span> <span onmouseout="hideTip(event, 'fs150', 505)" onmouseover="showTip(event, 'fs150', 505)" class="i">wordDataSet</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs160', 506)" onmouseover="showTip(event, 'fs160', 506)" class="i">F</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 507)" onmouseover="showTip(event, 'fs30', 507)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 508)" onmouseover="showTip(event, 'fs35', 508)" class="i">transform</span> <span onmouseout="hideTip(event, 'fs153', 509)" onmouseover="showTip(event, 'fs153', 509)" class="i">adjCenterWordPCA</span> <span onmouseout="hideTip(event, 'fs154', 510)" onmouseover="showTip(event, 'fs154', 510)" class="i">wordPCA</span> <span onmouseout="hideTip(event, 'fs150', 511)" onmouseover="showTip(event, 'fs150', 511)" class="i">wordDataSet</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs161', 512)" onmouseover="showTip(event, 'fs161', 512)" class="i">sd</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs154', 513)" onmouseover="showTip(event, 'fs154', 513)" class="i">wordPCA</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs162', 514)" onmouseover="showTip(event, 'fs162', 514)" class="i">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs163', 515)" onmouseover="showTip(event, 'fs163', 515)" class="i">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs164', 516)" onmouseover="showTip(event, 'fs164', 516)" class="i">c</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs165', 517)" onmouseover="showTip(event, 'fs165', 517)" class="i">sqrt</span> <span onmouseout="hideTip(event, 'fs164', 518)" onmouseover="showTip(event, 'fs164', 518)" class="i">c</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs166', 519)" onmouseover="showTip(event, 'fs166', 519)" class="i">EigenValue</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs167', 520)" onmouseover="showTip(event, 'fs167', 520)" class="i">DenseVector</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs168', 521)" onmouseover="showTip(event, 'fs168', 521)" class="i">OfEnumerable</span>
+
+<span onmouseout="hideTip(event, 'fs160', 522)" onmouseover="showTip(event, 'fs160', 522)" class="i">F</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs169', 523)" onmouseover="showTip(event, 'fs169', 523)" class="i">Transpose</span>() <span class="o">*</span> <span onmouseout="hideTip(event, 'fs161', 524)" onmouseover="showTip(event, 'fs161', 524)" class="i">sd</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs170', 525)" onmouseover="showTip(event, 'fs170', 525)" class="i">ToColumnMatrix</span>()
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs171', 526)" onmouseover="showTip(event, 'fs171', 526)" class="i">M</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs27', 527)" onmouseover="showTip(event, 'fs27', 527)" class="i">DenseMatrix</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs172', 528)" onmouseover="showTip(event, 'fs172', 528)" class="i">OfArray</span>([| [| <span class="o">-</span><span class="n">1.</span>; <span class="n">1.</span> |]
+                           [| <span class="o">-</span><span class="n">1.</span>; <span class="n">1.</span> |] |]
+                        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs173', 529)" onmouseover="showTip(event, 'fs173', 529)" class="i">Array2D</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs174', 530)" onmouseover="showTip(event, 'fs174', 530)" class="i">ofJaggedArray</span>)
+
+<span onmouseout="hideTip(event, 'fs160', 531)" onmouseover="showTip(event, 'fs160', 531)" class="i">F</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs175', 532)" onmouseover="showTip(event, 'fs175', 532)" class="i">PointwiseMultiply</span>(<span onmouseout="hideTip(event, 'fs171', 533)" onmouseover="showTip(event, 'fs171', 533)" class="i">M</span>)
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs176', 534)" onmouseover="showTip(event, 'fs176', 534)" class="i">factor</span> <span class="o">=</span> <span class="n">5.0</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs177', 535)" onmouseover="showTip(event, 'fs177', 535)" class="i">f</span> (<span onmouseout="hideTip(event, 'fs178', 536)" onmouseover="showTip(event, 'fs178', 536)" class="i">comps</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs30', 537)" onmouseover="showTip(event, 'fs30', 537)" class="i">PCA</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs42', 538)" onmouseover="showTip(event, 'fs42', 538)" class="i">Component</span> []) <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs178', 539)" onmouseover="showTip(event, 'fs178', 539)" class="i">comps</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs162', 540)" onmouseover="showTip(event, 'fs162', 540)" class="i">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs163', 541)" onmouseover="showTip(event, 'fs163', 541)" class="i">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs164', 542)" onmouseover="showTip(event, 'fs164', 542)" class="i">c</span> <span class="k">-&gt;</span> 
+                 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs179', 543)" onmouseover="showTip(event, 'fs179', 543)" class="i">evar</span> <span class="o">=</span> 
+                     <span onmouseout="hideTip(event, 'fs164', 544)" onmouseover="showTip(event, 'fs164', 544)" class="i">c</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs51', 545)" onmouseover="showTip(event, 'fs51', 545)" class="i">EigenVector</span> 
+                     <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs141', 546)" onmouseover="showTip(event, 'fs141', 546)" class="i">FSharpBio</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs142', 547)" onmouseover="showTip(event, 'fs142', 547)" class="i">Statistics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs143', 548)" onmouseover="showTip(event, 'fs143', 548)" class="i">Descriptive</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs144', 549)" onmouseover="showTip(event, 'fs144', 549)" class="i">StatisticalMeasure</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs180', 550)" onmouseover="showTip(event, 'fs180', 550)" class="i">var</span>
+                 <span onmouseout="hideTip(event, 'fs179', 551)" onmouseover="showTip(event, 'fs179', 551)" class="i">evar</span>)
+
+<span class="c">//c.EigenVector |&gt; Array.map (fun i -&gt; sqrt (((i * i) * evar) / c.EigenValue))</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs181', 552)" onmouseover="showTip(event, 'fs181', 552)" class="i">tmp2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs177', 553)" onmouseover="showTip(event, 'fs177', 553)" class="i">f</span> <span onmouseout="hideTip(event, 'fs154', 554)" onmouseover="showTip(event, 'fs154', 554)" class="i">wordPCA</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs182', 555)" onmouseover="showTip(event, 'fs182', 555)" class="i">a</span> <span class="o">=</span> [| <span class="o">-</span><span class="n">0.536875</span>; <span class="n">0.843661</span> |]
+
+<span onmouseout="hideTip(event, 'fs165', 556)" onmouseover="showTip(event, 'fs165', 556)" class="i">sqrt</span> 
+    (<span onmouseout="hideTip(event, 'fs182', 557)" onmouseover="showTip(event, 'fs182', 557)" class="i">a</span><span class="o">.</span>[<span class="n">1</span>] <span class="o">*</span> <span onmouseout="hideTip(event, 'fs182', 558)" onmouseover="showTip(event, 'fs182', 558)" class="i">a</span><span class="o">.</span>[<span class="n">1</span>] 
+     <span class="o">*</span> (<span onmouseout="hideTip(event, 'fs141', 559)" onmouseover="showTip(event, 'fs141', 559)" class="i">FSharpBio</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs142', 560)" onmouseover="showTip(event, 'fs142', 560)" class="i">Statistics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs143', 561)" onmouseover="showTip(event, 'fs143', 561)" class="i">Descriptive</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs144', 562)" onmouseover="showTip(event, 'fs144', 562)" class="i">StatisticalMeasure</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs180', 563)" onmouseover="showTip(event, 'fs180', 563)" class="i">var</span> (<span onmouseout="hideTip(event, 'fs160', 564)" onmouseover="showTip(event, 'fs160', 564)" class="i">F</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 565)" onmouseover="showTip(event, 'fs74', 565)" class="i">Column</span>(<span class="n">0</span>))) 
+     <span class="o">/</span> <span class="n">392.</span>)
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs183', 566)" onmouseover="showTip(event, 'fs183', 566)" class="i">av</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs157', 567)" onmouseover="showTip(event, 'fs157', 567)" class="i">variables</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 568)" onmouseover="showTip(event, 'fs74', 568)" class="i">Column</span>(<span class="n">0</span>) <span class="c">//DenseVector.OfEnumerable([2.;-3.;4.;])//F.Column(0)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs184', 569)" onmouseover="showTip(event, 'fs184', 569)" class="i">bv</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs160', 570)" onmouseover="showTip(event, 'fs160', 570)" class="i">F</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 571)" onmouseover="showTip(event, 'fs74', 571)" class="i">Column</span>(<span class="n">0</span>) <span class="c">//DenseVector.OfEnumerable([5.;2.;1.;])//variables.Column(0)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs185', 572)" onmouseover="showTip(event, 'fs185', 572)" class="i">cosV</span> <span class="o">=</span> (<span onmouseout="hideTip(event, 'fs183', 573)" onmouseover="showTip(event, 'fs183', 573)" class="i">av</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs184', 574)" onmouseover="showTip(event, 'fs184', 574)" class="i">bv</span>) <span class="o">/</span> (<span onmouseout="hideTip(event, 'fs183', 575)" onmouseover="showTip(event, 'fs183', 575)" class="i">av</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs186', 576)" onmouseover="showTip(event, 'fs186', 576)" class="i">Norm</span>(<span class="n">2.</span>) <span class="o">*</span> <span onmouseout="hideTip(event, 'fs184', 577)" onmouseover="showTip(event, 'fs184', 577)" class="i">bv</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs186', 578)" onmouseover="showTip(event, 'fs186', 578)" class="i">Norm</span>(<span class="n">2.</span>))
+
+<span onmouseout="hideTip(event, 'fs141', 579)" onmouseover="showTip(event, 'fs141', 579)" class="i">FSharpBio</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs142', 580)" onmouseover="showTip(event, 'fs142', 580)" class="i">Statistics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs143', 581)" onmouseover="showTip(event, 'fs143', 581)" class="i">Descriptive</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs187', 582)" onmouseover="showTip(event, 'fs187', 582)" class="i">Correlation</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs188', 583)" onmouseover="showTip(event, 'fs188', 583)" class="i">pearsonCorrelation</span> <span onmouseout="hideTip(event, 'fs183', 584)" onmouseover="showTip(event, 'fs183', 584)" class="i">av</span> <span onmouseout="hideTip(event, 'fs184', 585)" onmouseover="showTip(event, 'fs184', 585)" class="i">bv</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs189', 586)" onmouseover="showTip(event, 'fs189', 586)" class="i">v</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs141', 587)" onmouseover="showTip(event, 'fs141', 587)" class="i">FSharpBio</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs142', 588)" onmouseover="showTip(event, 'fs142', 588)" class="i">Statistics</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs143', 589)" onmouseover="showTip(event, 'fs143', 589)" class="i">Descriptive</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs144', 590)" onmouseover="showTip(event, 'fs144', 590)" class="i">StatisticalMeasure</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs180', 591)" onmouseover="showTip(event, 'fs180', 591)" class="i">var</span> (<span onmouseout="hideTip(event, 'fs160', 592)" onmouseover="showTip(event, 'fs160', 592)" class="i">F</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 593)" onmouseover="showTip(event, 'fs74', 593)" class="i">Column</span>(<span class="n">0</span>))
+
+<span onmouseout="hideTip(event, 'fs182', 594)" onmouseover="showTip(event, 'fs182', 594)" class="i">a</span><span class="o">.</span>[<span class="n">0</span>] <span class="o">*</span> (<span onmouseout="hideTip(event, 'fs165', 595)" onmouseover="showTip(event, 'fs165', 595)" class="i">sqrt</span> <span class="n">392.</span>) <span class="o">/</span> (<span onmouseout="hideTip(event, 'fs165', 596)" onmouseover="showTip(event, 'fs165', 596)" class="i">sqrt</span> (<span onmouseout="hideTip(event, 'fs189', 597)" onmouseover="showTip(event, 'fs189', 597)" class="i">v</span>))
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs190', 598)" onmouseover="showTip(event, 'fs190', 598)" class="i">a1</span> <span class="o">=</span> <span class="o">-</span><span class="n">2.400977991</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs191', 599)" onmouseover="showTip(event, 'fs191', 599)" class="i">b1</span> <span class="o">=</span> <span class="n">3.772966692</span>
+
+(<span onmouseout="hideTip(event, 'fs190', 600)" onmouseover="showTip(event, 'fs190', 600)" class="i">a1</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs190', 601)" onmouseover="showTip(event, 'fs190', 601)" class="i">a1</span>) <span class="o">/</span> ((<span onmouseout="hideTip(event, 'fs190', 602)" onmouseover="showTip(event, 'fs190', 602)" class="i">a1</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs190', 603)" onmouseover="showTip(event, 'fs190', 603)" class="i">a1</span>) <span class="o">+</span> (<span onmouseout="hideTip(event, 'fs191', 604)" onmouseover="showTip(event, 'fs191', 604)" class="i">b1</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs191', 605)" onmouseover="showTip(event, 'fs191', 605)" class="i">b1</span>))
+(<span class="c">//pr.out.cov$rotation[1,1]*pr.out.cov$sdev[1]/sqrt(var(ten.genes[,1]))</span>
+ <span class="o">-</span><span class="n">16.70364525</span>) <span class="o">*</span> (<span onmouseout="hideTip(event, 'fs165', 606)" onmouseover="showTip(event, 'fs165', 606)" class="i">sqrt</span> <span class="n">392.</span>)
+[| <span class="n">0.536875</span>; <span class="n">0.843661</span> |]
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs162', 607)" onmouseover="showTip(event, 'fs162', 607)" class="i">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs192', 608)" onmouseover="showTip(event, 'fs192', 608)" class="i">sumBy</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs54', 609)" onmouseover="showTip(event, 'fs54', 609)" class="i">y</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs54', 610)" onmouseover="showTip(event, 'fs54', 610)" class="i">y</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs54', 611)" onmouseover="showTip(event, 'fs54', 611)" class="i">y</span>)
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs165', 612)" onmouseover="showTip(event, 'fs165', 612)" class="i">sqrt</span>
+<span class="n">0.536875</span> <span class="o">/</span> <span class="n">0.9999993243</span>
+<span class="c">//variables.Transpose() * variables</span>
+<span class="c">//</span>
+<span class="c">//let inline sLo x1 x2 =</span>
+<span class="c">//    let nom = (x1 * x1) + (x2 * x2)</span>
+<span class="c">//    (x1 * x1) / nom</span>
+<span class="c">//</span>
+<span class="c">//sLo -7.7 14.7</span>
+<span class="c">//</span>
+<span class="c">//PCA.computeOfMatrix (Matrix.cov wordDataSet)</span>
+<span class="c">//F.Transpose() TransposeAndMultiply(variables)</span>
+<span class="c">//</span>
+<span class="c">//</span>
+<span class="c">//let adjCenter   = PCA.toAdjustCovariance wordDataSet</span>
+<span class="c">//</span>
+<span class="c">//let wordPCA     = PCA.compute adjCenter wordDataSet</span>
+<span class="c">//</span>
+<span class="c">//let transpose = (adjCenter PCA.AdjustmentDirection.Obverse wordDataSet)</span>
+<span class="c">//</span>
+<span class="c">//        </span>
+<span class="c">//let svd            =   transpose.Svd(true)</span>
+<span class="c">//let singularValues = svd.W().Diagonal() |&gt; Seq.toArray</span>
+<span class="c">//// EigenVectors are the right sigular vectors</span>
+<span class="c">//let eigenVectors   =  svd.VT().Inverse()</span>
+<span class="c">//</span>
+<span class="c">//</span>
+<span class="c">////let singularValues = eigenValues |&gt; Seq.map (fun ev -&gt; sqrt ev) |&gt; Seq.toArray</span>
+<span class="c">//let lM             = DiagonalMatrix(singularValues.Length,singularValues.Length,singularValues)</span>
+<span class="c">//let fsMatrix       = lM * eigenVectors</span>
+<span class="c">//</span>
+<span class="c">//</span>
+<span class="c">//</span>
+<span class="c">//let wordDataPCA = PCA.transform adjCenter wordPCA wordDataSet</span>
+<span class="c">//</span>
+<span class="c">//let wordrev     = PCA.revert adjCenter wordPCA wordDataPCA</span>
+<span class="c">//</span>
+<span class="c">//PCA.getFeatureMatrixOfComponents wordPCA</span>
+<span class="c">//</span>
+<span class="c">//covarianceUnbaised </span>
+<span class="c">//</span>
+<span class="c">//let covM = Matrix.columnCovariance wordDataSet</span>
+<span class="c">//PCA.computeOfCovarianceMatrix covM</span>
+<span class="c">//</span>
+<span class="c">//let x1 = 0.5368754922</span>
+<span class="c">//let x2 = -0.8436614877</span>
+<span class="c">//</span>
+<span class="c">//let nn = (x1 * x1) + (x2 * x2)</span>
+<span class="c">//let n = x1 + x2</span>
+<span class="c">//</span>
+<span class="c">//4.427188724</span></pre>
+</td>
+</tr>
+</table>
+
+<div class="tip" id="fs1">type irisItem =<br />&#160;&#160;{SepalLength: float;<br />&#160;&#160;&#160;SepalWidth: float;<br />&#160;&#160;&#160;PetalLength: float;<br />&#160;&#160;&#160;PetalWidth: float;<br />&#160;&#160;&#160;Species: string;}<br /><br />Full name: FSharpBio.ML.irisItem</div>
+<div class="tip" id="fs2">Multiple items<br />type FieldAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : indices:string [] -&gt; FieldAttribute<br />&#160;&#160;new : indices:int [] -&gt; FieldAttribute<br />&#160;&#160;new : index:string -&gt; FieldAttribute<br />&#160;&#160;new : index:int -&gt; FieldAttribute<br />&#160;&#160;new : indexTag:FieldIndex -&gt; FieldAttribute<br />&#160;&#160;member IndexTag : FieldIndex<br /><br />Full name: FSharpBio.IO.SchemaReader.Attribute.FieldAttribute<br /><br />--------------------<br />new : indexTag:FieldIndex -&gt; FieldAttribute<br />new : index:int -&gt; FieldAttribute<br />new : index:string -&gt; FieldAttribute<br />new : indices:int [] -&gt; FieldAttribute<br />new : indices:string [] -&gt; FieldAttribute</div>
+<div class="tip" id="fs3">irisItem.SepalLength: float</div>
+<div class="tip" id="fs4">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.float<br /><br />--------------------<br />type float = System.Double<br /><br />Full name: Microsoft.FSharp.Core.float<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; = float<br /><br />Full name: Microsoft.FSharp.Core.float&lt;_&gt;</div>
+<div class="tip" id="fs5">irisItem.SepalWidth: float</div>
+<div class="tip" id="fs6">irisItem.PetalLength: float</div>
+<div class="tip" id="fs7">irisItem.PetalWidth: float</div>
+<div class="tip" id="fs8">irisItem.Species: string</div>
+<div class="tip" id="fs9">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = System.String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs10">module FileIO<br /><br />from FSharpBio.IO</div>
+<div class="tip" id="fs11">val setWorkingDirectory : path:string -&gt; unit<br /><br />Full name: FSharpBio.IO.FileIO.setWorkingDirectory</div>
+<div class="tip" id="fs12">val reader : CsvReader&lt;irisItem&gt;<br /><br />Full name: FSharpBio.ML.reader</div>
+<div class="tip" id="fs13">Multiple items<br />type CsvReader&lt;&#39;Schema&gt; =<br />&#160;&#160;new : ?typeConverter:(Type -&gt; Converter) * ?schemaMode:SchemaMode * ?verbose:bool -&gt; CsvReader&lt;&#39;Schema&gt;<br />&#160;&#160;member ReadFile : file:string * separator:char * firstLineHasHeader:bool * ?skipLines:int * ?skipLinesBeforeHeader:int -&gt; seq&lt;&#39;Schema&gt;<br />&#160;&#160;member ReadLine : header:Map&lt;Index,int&gt; -&gt; separator:char -&gt; line:string -&gt; &#39;Schema<br /><br />Full name: FSharpBio.IO.SchemaReader.Csv.CsvReader&lt;_&gt;<br /><br />--------------------<br />new : ?typeConverter:(System.Type -&gt; Converter) * ?schemaMode:SchemaMode * ?verbose:bool -&gt; CsvReader&lt;&#39;Schema&gt;</div>
+<div class="tip" id="fs14">val irisData : irisItem list<br /><br />Full name: FSharpBio.ML.irisData</div>
+<div class="tip" id="fs15">member CsvReader.ReadFile : file:string * separator:char * firstLineHasHeader:bool * ?skipLines:int * ?skipLinesBeforeHeader:int -&gt; seq&lt;&#39;Schema&gt;</div>
+<div class="tip" id="fs16">Multiple items<br />module Seq<br /><br />from FSharp.CoreX<br /><br />--------------------<br />module Seq<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type Seq =<br />&#160;&#160;static member fromFile : filePath:string -&gt; seq&lt;string&gt;<br />&#160;&#160;static member fromFileWithSchema : filePath:string * separator:char * firstLineHasHeader:bool * ?skipLines:int -&gt; seq&lt;&#39;schema&gt;<br />&#160;&#160;static member fromFileWithSeq : separator:char -&gt; filePath:string -&gt; seq&lt;string []&gt;<br />&#160;&#160;static member toCSV : separator:string -&gt; header:bool -&gt; data:seq&lt;&#39;a&gt; -&gt; seq&lt;string&gt;<br />&#160;&#160;static member write : path:string -&gt; data:seq&lt;&#39;a&gt; -&gt; unit<br />&#160;&#160;static member writeOrAppend : path:string -&gt; data:seq&lt;&#39;a&gt; -&gt; unit<br /><br />Full name: FSharpBio.IO.SeqIO.Seq</div>
+<div class="tip" id="fs17">val toList : source:seq&lt;&#39;T&gt; -&gt; &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.Seq.toList</div>
+<div class="tip" id="fs18">val firstItem : float<br /><br />Full name: FSharpBio.ML.firstItem</div>
+<div class="tip" id="fs19">val averageBy : projection:(&#39;T -&gt; &#39;U) -&gt; source:seq&lt;&#39;T&gt; -&gt; &#39;U (requires member ( + ) and member DivideByInt and member get_Zero)<br /><br />Full name: Microsoft.FSharp.Collections.Seq.averageBy</div>
+<div class="tip" id="fs20">val item : irisItem</div>
+<div class="tip" id="fs21">val irisFeatures : float list list<br /><br />Full name: FSharpBio.ML.irisFeatures</div>
+<div class="tip" id="fs22">Multiple items<br />module List<br /><br />from FSharp.CoreX<br /><br />--------------------<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;member Head : &#39;T<br />&#160;&#160;member IsEmpty : bool<br />&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;member Length : int<br />&#160;&#160;member Tail : &#39;T list<br />&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;static member Empty : &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List&lt;_&gt;</div>
+<div class="tip" id="fs23">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; list:&#39;T list -&gt; &#39;U list<br /><br />Full name: Microsoft.FSharp.Collections.List.map</div>
+<div class="tip" id="fs24">val ii : irisItem</div>
+<div class="tip" id="fs25">val irisLables : string list<br /><br />Full name: FSharpBio.ML.irisLables</div>
+<div class="tip" id="fs26">val irisFeaturesMatrix : DenseMatrix<br /><br />Full name: FSharpBio.ML.irisFeaturesMatrix</div>
+<div class="tip" id="fs27">Multiple items<br />type DenseMatrix =<br />&#160;&#160;inherit Matrix<br />&#160;&#160;new : storage:DenseColumnMajorMatrixStorage&lt;float&gt; -&gt; DenseMatrix + 6 overloads<br />&#160;&#160;member CreateMatrix : numberOfRows:int * numberOfColumns:int * ?fullyMutable:bool -&gt; Matrix&lt;float&gt;<br />&#160;&#160;member CreateVector : size:int * ?fullyMutable:bool -&gt; Vector&lt;float&gt;<br />&#160;&#160;member Data : float[]<br />&#160;&#160;member FrobeniusNorm : unit -&gt; float<br />&#160;&#160;member InfinityNorm : unit -&gt; float<br />&#160;&#160;member L1Norm : unit -&gt; float<br />&#160;&#160;member Trace : unit -&gt; float<br />&#160;&#160;member Transpose : unit -&gt; Matrix&lt;float&gt;<br />&#160;&#160;member Values : float[]<br />&#160;&#160;...<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Double.DenseMatrix<br /><br />--------------------<br />DenseMatrix(storage: MathNet.Numerics.LinearAlgebra.Storage.DenseColumnMajorMatrixStorage&lt;float&gt;) : unit<br />DenseMatrix(order: int) : unit<br />DenseMatrix(rows: int, columns: int) : unit<br />DenseMatrix(rows: int, columns: int, storage: float []) : unit</div>
+<div class="tip" id="fs28">val ofList : fll:float list list -&gt; DenseMatrix<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Double.DenseMatrix.ofList</div>
+<div class="tip" id="fs29">val adjCenter : (PCA.AdjustmentDirection -&gt; Matrix&lt;float&gt; -&gt; Matrix&lt;float&gt;)<br /><br />Full name: FSharpBio.ML.adjCenter</div>
+<div class="tip" id="fs30">module PCA<br /><br />from FSharpBio.ML.Unsupervised</div>
+<div class="tip" id="fs31">val toAdjustCenter : data:Matrix&lt;float&gt; -&gt; PCA.AdjustmentFactory<br /><br />Full name: FSharpBio.ML.Unsupervised.PCA.toAdjustCenter</div>
+<div class="tip" id="fs32">val irisPCA : PCA.Component []<br /><br />Full name: FSharpBio.ML.irisPCA</div>
+<div class="tip" id="fs33">val compute : adj:PCA.AdjustmentFactory -&gt; dataMatrix:#Matrix&lt;float&gt; -&gt; PCA.Component []<br /><br />Full name: FSharpBio.ML.Unsupervised.PCA.compute</div>
+<div class="tip" id="fs34">val irisDataPCA : Matrix&lt;float&gt;<br /><br />Full name: FSharpBio.ML.irisDataPCA</div>
+<div class="tip" id="fs35">val transform : adj:PCA.AdjustmentFactory -&gt; components:PCA.Component [] -&gt; dataMatrix:#Matrix&lt;float&gt; -&gt; Matrix&lt;float&gt;<br /><br />Full name: FSharpBio.ML.Unsupervised.PCA.transform</div>
+<div class="tip" id="fs36">val irisrev : Matrix&lt;float&gt;<br /><br />Full name: FSharpBio.ML.irisrev</div>
+<div class="tip" id="fs37">val revert : adj:PCA.AdjustmentFactory -&gt; components:PCA.Component [] -&gt; dataMatrix:#Matrix&lt;float&gt; -&gt; Matrix&lt;float&gt;<br /><br />Full name: FSharpBio.ML.Unsupervised.PCA.revert</div>
+<div class="tip" id="fs38">namespace FSharp</div>
+<div class="tip" id="fs39">namespace FSharp.Charting</div>
+<div class="tip" id="fs40">val plotLoadingsColoredByGrouping : pcaComponents:PCA.Component [] -&gt; labels:seq&lt;string&gt; -&gt; grouping:(string -&gt; string) -&gt; pcIndex1:int -&gt; pcIndex2:int -&gt; ChartTypes.GenericChart<br /><br />Full name: FSharpBio.ML.plotLoadingsColoredByGrouping</div>
+<div class="tip" id="fs41">val pcaComponents : PCA.Component []</div>
+<div class="tip" id="fs42">type Component =<br />&#160;&#160;{EigenVector: float [];<br />&#160;&#160;&#160;EigenValue: float;<br />&#160;&#160;&#160;Loadings: float [];<br />&#160;&#160;&#160;Proportion: float;<br />&#160;&#160;&#160;CumulativeProportion: float;<br />&#160;&#160;&#160;Index: int;}<br /><br />Full name: FSharpBio.ML.Unsupervised.PCA.Component</div>
+<div class="tip" id="fs43">val labels : seq&lt;string&gt;</div>
+<div class="tip" id="fs44">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Core.Operators.seq<br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.seq&lt;_&gt;</div>
+<div class="tip" id="fs45">val grouping : (string -&gt; string)</div>
+<div class="tip" id="fs46">val pcIndex1 : int</div>
+<div class="tip" id="fs47">val pcIndex2 : int</div>
+<div class="tip" id="fs48">val pComponent1 : PCA.Component</div>
+<div class="tip" id="fs49">val pComponent2 : PCA.Component</div>
+<div class="tip" id="fs50">val zip3 : source1:seq&lt;&#39;T1&gt; -&gt; source2:seq&lt;&#39;T2&gt; -&gt; source3:seq&lt;&#39;T3&gt; -&gt; seq&lt;&#39;T1 * &#39;T2 * &#39;T3&gt;<br /><br />Full name: Microsoft.FSharp.Collections.Seq.zip3</div>
+<div class="tip" id="fs51">PCA.Component.EigenVector: float []</div>
+<div class="tip" id="fs52">val groupBy : projection:(&#39;T -&gt; &#39;Key) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;Key * seq&lt;&#39;T&gt;&gt; (requires equality)<br /><br />Full name: Microsoft.FSharp.Collections.Seq.groupBy</div>
+<div class="tip" id="fs53">val x : float</div>
+<div class="tip" id="fs54">val y : float</div>
+<div class="tip" id="fs55">val label : string</div>
+<div class="tip" id="fs56">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;U&gt;<br /><br />Full name: Microsoft.FSharp.Collections.Seq.map</div>
+<div class="tip" id="fs57">Multiple items<br />val key : string<br /><br />--------------------<br />type key = System.IComparable<br /><br />Full name: FSharp.Charting.key</div>
+<div class="tip" id="fs58">val values : seq&lt;float * float * string&gt;</div>
+<div class="tip" id="fs59">val nVal : seq&lt;float * float&gt;</div>
+<div class="tip" id="fs60">val l : string</div>
+<div class="tip" id="fs61">val nLab : seq&lt;string&gt;</div>
+<div class="tip" id="fs62">type Chart =<br />&#160;&#160;static member Area : data:seq&lt;#value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string -&gt; GenericChart<br />&#160;&#160;static member Area : data:seq&lt;#key * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string -&gt; GenericChart<br />&#160;&#160;static member Bar : data:seq&lt;#value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string -&gt; GenericChart<br />&#160;&#160;static member Bar : data:seq&lt;#key * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string -&gt; GenericChart<br />&#160;&#160;static member BoxPlotFromData : data:seq&lt;#key * #seq&lt;&#39;a2&gt;&gt; * ?Name:string * ?Title:string * ?Color:Color * ?XTitle:string * ?YTitle:string * ?Percentile:int * ?ShowAverage:bool * ?ShowMedian:bool * ?ShowUnusualValues:bool * ?WhiskerPercentile:int -&gt; GenericChart (requires &#39;a2 :&gt; value)<br />&#160;&#160;static member BoxPlotFromStatistics : data:seq&lt;#key * #value * #value * #value * #value * #value * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string * ?Percentile:int * ?ShowAverage:bool * ?ShowMedian:bool * ?ShowUnusualValues:bool * ?WhiskerPercentile:int -&gt; GenericChart<br />&#160;&#160;static member Bubble : data:seq&lt;#value * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string * ?BubbleMaxSize:int * ?BubbleMinSize:int * ?BubbleScaleMax:float * ?BubbleScaleMin:float * ?UseSizeForLabel:bool -&gt; GenericChart<br />&#160;&#160;static member Bubble : data:seq&lt;#key * #value * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string * ?BubbleMaxSize:int * ?BubbleMinSize:int * ?BubbleScaleMax:float * ?BubbleScaleMin:float * ?UseSizeForLabel:bool -&gt; GenericChart<br />&#160;&#160;static member Candlestick : data:seq&lt;#value * #value * #value * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string -&gt; CandlestickChart<br />&#160;&#160;static member Candlestick : data:seq&lt;#key * #value * #value * #value * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:Color * ?XTitle:string * ?YTitle:string -&gt; CandlestickChart<br />&#160;&#160;...<br /><br />Full name: FSharp.Charting.Chart</div>
+<div class="tip" id="fs63">static member Chart.Point : data:seq&lt;#value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:System.Drawing.Color * ?XTitle:string * ?YTitle:string * ?MarkerColor:System.Drawing.Color * ?MarkerSize:int -&gt; ChartTypes.GenericChart<br />static member Chart.Point : data:seq&lt;#key * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:System.Drawing.Color * ?XTitle:string * ?YTitle:string * ?MarkerColor:System.Drawing.Color * ?MarkerSize:int -&gt; ChartTypes.GenericChart</div>
+<div class="tip" id="fs64">static member Chart.WithMarkers : ?Color:System.Drawing.Color * ?Size:int * ?Step:int * ?Style:ChartTypes.MarkerStyle * ?BorderColor:System.Drawing.Color * ?BorderWidth:int * ?PointWidth:float * ?PixelPointWidth:int * ?PointStyle:ChartTypes.PointStyle * ?MaxPixelPointWidth:int * ?MinPixelPointWidth:int -&gt; (&#39;a0 -&gt; &#39;a0) (requires &#39;a0 :&gt; ChartTypes.GenericChart)</div>
+<div class="tip" id="fs65">static member Chart.Combine : charts:seq&lt;ChartTypes.GenericChart&gt; -&gt; ChartTypes.GenericChart</div>
+<div class="tip" id="fs66">static member Chart.WithTitle : ?Text:string * ?InsideArea:bool * ?Style:ChartTypes.TextStyle * ?FontName:string * ?FontSize:float * ?FontStyle:System.Drawing.FontStyle * ?Background:ChartTypes.Background * ?Color:System.Drawing.Color * ?BorderColor:System.Drawing.Color * ?BorderWidth:int * ?BorderDashStyle:ChartTypes.DashStyle * ?Orientation:ChartTypes.TextOrientation * ?Alignment:System.Drawing.ContentAlignment * ?Docking:ChartTypes.Docking -&gt; (&#39;a0 -&gt; &#39;a0) (requires &#39;a0 :&gt; ChartTypes.GenericChart)</div>
+<div class="tip" id="fs67">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
+<div class="tip" id="fs68">PCA.Component.Index: int</div>
+<div class="tip" id="fs69">PCA.Component.Proportion: float</div>
+<div class="tip" id="fs70">static member Chart.ShowChart : ch:&#39;a0 -&gt; &#39;a0 (requires &#39;a0 :&gt; ChartTypes.GenericChart)</div>
+<div class="tip" id="fs71">val plotScoresColoredByGrouping : transformedData:Matrix&lt;float&gt; -&gt; labels:seq&lt;string&gt; -&gt; grouping:(string -&gt; string) -&gt; pcIndex1:int -&gt; pcIndex2:int -&gt; ChartTypes.GenericChart<br /><br />Full name: FSharpBio.ML.plotScoresColoredByGrouping</div>
+<div class="tip" id="fs72">val transformedData : Matrix&lt;float&gt;</div>
+<div class="tip" id="fs73">Multiple items<br />type Matrix =<br />&#160;&#160;inherit Matrix&lt;float&gt;<br />&#160;&#160;member ConjugateTranspose : unit -&gt; Matrix&lt;float&gt;<br />&#160;&#160;member FrobeniusNorm : unit -&gt; float<br />&#160;&#160;member InfinityNorm : unit -&gt; float<br />&#160;&#160;member L1Norm : unit -&gt; float<br />&#160;&#160;member Trace : unit -&gt; float<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Double.Matrix<br /><br />--------------------<br />type Matrix&lt;&#39;T (requires default constructor and value type and &#39;T :&gt; ValueType and &#39;T :&gt; IEquatable&lt;&#39;T&gt; and &#39;T :&gt; IFormattable)&gt; =<br />&#160;&#160;member Add : other:Matrix&lt;&#39;T&gt; -&gt; Matrix&lt;&#39;T&gt; + 1 overload<br />&#160;&#160;member Append : right:Matrix&lt;&#39;T&gt; -&gt; Matrix&lt;&#39;T&gt; + 1 overload<br />&#160;&#160;member At : row:int * column:int -&gt; &#39;T + 1 overload<br />&#160;&#160;member Clear : unit -&gt; unit<br />&#160;&#160;member ClearColumn : columnIndex:int -&gt; unit<br />&#160;&#160;member ClearRow : rowIndex:int -&gt; unit<br />&#160;&#160;member ClearSubMatrix : rowIndex:int * rowCount:int * columnIndex:int * columnCount:int -&gt; unit<br />&#160;&#160;member Clone : unit -&gt; Matrix&lt;&#39;T&gt;<br />&#160;&#160;member Column : index:int -&gt; Vector&lt;&#39;T&gt; + 3 overloads<br />&#160;&#160;member ColumnCount : int with get, set<br />&#160;&#160;...<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Generic.Matrix&lt;_&gt;</div>
+<div class="tip" id="fs74">Matrix.Column(index: int) : Vector&lt;float&gt;<br />Matrix.Column(index: int, result: Vector&lt;float&gt;) : unit<br />Matrix.Column(columnIndex: int, rowIndex: int, length: int) : Vector&lt;float&gt;<br />Matrix.Column(columnIndex: int, rowIndex: int, length: int, result: Vector&lt;float&gt;) : unit</div>
+<div class="tip" id="fs75">val x : string</div>
+<div class="tip" id="fs76">val plotScatternMatrixColoredByGrouping : inputMatrix:Matrix&lt;float&gt; -&gt; labels:seq&lt;string&gt; -&gt; grouping:(string -&gt; string) -&gt; ChartTypes.GenericChart<br /><br />Full name: FSharpBio.ML.plotScatternMatrixColoredByGrouping</div>
+<div class="tip" id="fs77">val inputMatrix : Matrix&lt;float&gt;</div>
+<div class="tip" id="fs78">Matrix.ColumnEnumerator() : System.Collections.Generic.IEnumerable&lt;int * Vector&lt;float&gt;&gt;<br />Matrix.ColumnEnumerator(index: int, length: int) : System.Collections.Generic.IEnumerable&lt;int * Vector&lt;float&gt;&gt;</div>
+<div class="tip" id="fs79">val collect : mapping:(&#39;T -&gt; #seq&lt;&#39;U&gt;) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;U&gt;<br /><br />Full name: Microsoft.FSharp.Collections.Seq.collect</div>
+<div class="tip" id="fs80">val i : int</div>
+<div class="tip" id="fs81">val outerColumn : Vector&lt;float&gt;</div>
+<div class="tip" id="fs82">val ii : int</div>
+<div class="tip" id="fs83">val innerColumn : Vector&lt;float&gt;</div>
+<div class="tip" id="fs84">Multiple items<br />module ChartTypes<br /><br />from FSharp.Charting.ChartingX<br /><br />--------------------<br />module ChartTypes<br /><br />from FSharp.Charting</div>
+<div class="tip" id="fs85"></div>
+<div class="tip" id="fs86">ChartTypes.MarkerStyle.Circle: ChartTypes.MarkerStyle = 2</div>
+<div class="tip" id="fs87">val rev : list:&#39;T list -&gt; &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List.rev</div>
+<div class="tip" id="fs88">static member Chart.RowsWithBreak : max:int -&gt; charts:seq&lt;ChartTypes.GenericChart&gt; -&gt; ChartTypes.GenericChart</div>
+<div class="tip" id="fs89">property Matrix.ColumnCount: int</div>
+<div class="tip" id="fs90">val plotScatternMatrix : inputMatrix:Matrix&lt;float&gt; -&gt; ChartTypes.GenericChart<br /><br />Full name: FSharpBio.ML.plotScatternMatrix</div>
+<div class="tip" id="fs91">val zip : source1:seq&lt;&#39;T1&gt; -&gt; source2:seq&lt;&#39;T2&gt; -&gt; seq&lt;&#39;T1 * &#39;T2&gt;<br /><br />Full name: Microsoft.FSharp.Collections.Seq.zip</div>
+<div class="tip" id="fs92">namespace System</div>
+<div class="tip" id="fs93">namespace System.Drawing</div>
+<div class="tip" id="fs94">type Color =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;member A : byte<br />&#160;&#160;&#160;&#160;member B : byte<br />&#160;&#160;&#160;&#160;member Equals : obj:obj -&gt; bool<br />&#160;&#160;&#160;&#160;member G : byte<br />&#160;&#160;&#160;&#160;member GetBrightness : unit -&gt; float32<br />&#160;&#160;&#160;&#160;member GetHashCode : unit -&gt; int<br />&#160;&#160;&#160;&#160;member GetHue : unit -&gt; float32<br />&#160;&#160;&#160;&#160;member GetSaturation : unit -&gt; float32<br />&#160;&#160;&#160;&#160;member IsEmpty : bool<br />&#160;&#160;&#160;&#160;member IsKnownColor : bool<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.Drawing.Color</div>
+<div class="tip" id="fs95">property System.Drawing.Color.DarkGray: System.Drawing.Color</div>
+<div class="tip" id="fs96">val rng : System.Random<br /><br />Full name: FSharpBio.ML.rng</div>
+<div class="tip" id="fs97">Multiple items<br />type Random =<br />&#160;&#160;new : unit -&gt; Random + 1 overload<br />&#160;&#160;member Next : unit -&gt; int + 2 overloads<br />&#160;&#160;member NextBytes : buffer:byte[] -&gt; unit<br />&#160;&#160;member NextDouble : unit -&gt; float<br /><br />Full name: System.Random<br /><br />--------------------<br />System.Random() : unit<br />System.Random(Seed: int) : unit</div>
+<div class="tip" id="fs98">val randomInitFactory : IterativeClustering.CentroidsFactory&lt;float []&gt;<br /><br />Full name: FSharpBio.ML.randomInitFactory</div>
+<div class="tip" id="fs99">module IterativeClustering<br /><br />from FSharpBio.ML.Unsupervised</div>
+<div class="tip" id="fs100">type CentroidsFactory&lt;&#39;a&gt; = seq&lt;&#39;a&gt; -&gt; int -&gt; seq&lt;&#39;a&gt;<br /><br />Full name: FSharpBio.ML.Unsupervised.IterativeClustering.CentroidsFactory&lt;_&gt;</div>
+<div class="tip" id="fs101">val randomCentroids : rng:System.Random -&gt; sample:seq&lt;&#39;a&gt; -&gt; k:int -&gt; seq&lt;&#39;a&gt;<br /><br />Full name: FSharpBio.ML.Unsupervised.IterativeClustering.randomCentroids</div>
+<div class="tip" id="fs102">val cvmaxFactory : IterativeClustering.CentroidsFactory&lt;float []&gt;<br /><br />Full name: FSharpBio.ML.cvmaxFactory</div>
+<div class="tip" id="fs103">val intitCVMAX : sample:seq&lt;float []&gt; -&gt; k:int -&gt; seq&lt;float []&gt;<br /><br />Full name: FSharpBio.ML.Unsupervised.IterativeClustering.intitCVMAX</div>
+<div class="tip" id="fs104">val kmeansResult : IterativeClustering.KClusteringResult&lt;float []&gt;<br /><br />Full name: FSharpBio.ML.kmeansResult</div>
+<div class="tip" id="fs105">val kmeans : dist:DistanceMetrics.Distance&lt;float []&gt; -&gt; factory:IterativeClustering.CentroidsFactory&lt;float []&gt; -&gt; dataset:seq&lt;float []&gt; -&gt; k:int -&gt; IterativeClustering.KClusteringResult&lt;float []&gt;<br /><br />Full name: FSharpBio.ML.Unsupervised.IterativeClustering.kmeans</div>
+<div class="tip" id="fs106">module DistanceMetrics<br /><br />from FSharpBio.ML.Unsupervised</div>
+<div class="tip" id="fs107">val euclidean : v1:seq&lt;float&gt; -&gt; v2:seq&lt;float&gt; -&gt; float<br /><br />Full name: FSharpBio.ML.Unsupervised.DistanceMetrics.euclidean</div>
+<div class="tip" id="fs108">val toJaggedArrayRowWise : matrix:Matrix&lt;&#39;T&gt; -&gt; &#39;T [] [] (requires default constructor and value type and &#39;T :&gt; System.ValueType and &#39;T :&gt; System.IEquatable&lt;&#39;T&gt; and &#39;T :&gt; System.IFormattable)<br /><br />Full name: FSharp.CoreX.Matrix.toJaggedArrayRowWise</div>
+<div class="tip" id="fs109">val chartsOfClassifiedData : ChartTypes.GenericChart<br /><br />Full name: FSharpBio.ML.chartsOfClassifiedData</div>
+<div class="tip" id="fs110">val dataPoint : float []</div>
+<div class="tip" id="fs111">val fst : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T1<br /><br />Full name: Microsoft.FSharp.Core.Operators.fst</div>
+<div class="tip" id="fs112">IterativeClustering.KClusteringResult.Classifier: float [] -&gt; int * float []</div>
+<div class="tip" id="fs113">val sortBy : projection:(&#39;T -&gt; &#39;Key) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt; (requires comparison)<br /><br />Full name: Microsoft.FSharp.Collections.Seq.sortBy</div>
+<div class="tip" id="fs114">Multiple items<br />val key : int<br /><br />--------------------<br />type key = System.IComparable<br /><br />Full name: FSharp.Charting.key</div>
+<div class="tip" id="fs115">val values : seq&lt;float []&gt;</div>
+<div class="tip" id="fs116">val v : float []</div>
+<div class="tip" id="fs117">static member Chart.Line : data:seq&lt;#value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:System.Drawing.Color * ?XTitle:string * ?YTitle:string -&gt; ChartTypes.GenericChart<br />static member Chart.Line : data:seq&lt;#key * #value&gt; * ?Name:string * ?Title:string * ?Labels:#seq&lt;string&gt; * ?Color:System.Drawing.Color * ?XTitle:string * ?YTitle:string -&gt; ChartTypes.GenericChart</div>
+<div class="tip" id="fs118">static member Chart.WithStyling : ?Name:string * ?Color:System.Drawing.Color * ?AreaBackground:ChartTypes.Background * ?Margin:(float * float * float * float) * ?Background:ChartTypes.Background * ?BorderColor:System.Drawing.Color * ?BorderWidth:int * ?SplineLineTension:float -&gt; (&#39;a0 -&gt; &#39;a0) (requires &#39;a0 :&gt; ChartTypes.GenericChart)</div>
+<div class="tip" id="fs119">property System.Drawing.Color.Silver: System.Drawing.Color</div>
+<div class="tip" id="fs120">System.Int32.ToString() : string<br />System.Int32.ToString(provider: System.IFormatProvider) : string<br />System.Int32.ToString(format: string) : string<br />System.Int32.ToString(format: string, provider: System.IFormatProvider) : string</div>
+<div class="tip" id="fs121">static member Chart.Rows : charts:seq&lt;ChartTypes.GenericChart&gt; -&gt; ChartTypes.GenericChart</div>
+<div class="tip" id="fs122">val clusterTree : HierarchivalClustering.Cluster&lt;float list&gt;<br /><br />Full name: FSharpBio.ML.clusterTree</div>
+<div class="tip" id="fs123">module HierarchivalClustering<br /><br />from FSharpBio.ML.Unsupervised</div>
+<div class="tip" id="fs124">val generate : distance:DistanceMetrics.Distance&lt;&#39;T&gt; -&gt; linker:HierarchivalClustering.Linker.LancWilliamsLinker -&gt; data:seq&lt;&#39;T&gt; -&gt; HierarchivalClustering.Cluster&lt;&#39;T&gt;<br /><br />Full name: FSharpBio.ML.Unsupervised.HierarchivalClustering.generate</div>
+<div class="tip" id="fs125">type &#39;T list = List&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.list&lt;_&gt;</div>
+<div class="tip" id="fs126">module Linker<br /><br />from FSharpBio.ML.Unsupervised.HierarchivalClustering</div>
+<div class="tip" id="fs127">val weightedGroupAverageLwLinker : int * int * int -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float<br /><br />Full name: FSharpBio.ML.Unsupervised.HierarchivalClustering.Linker.weightedGroupAverageLwLinker</div>
+<div class="tip" id="fs128">val get : int list list<br /><br />Full name: FSharpBio.ML.get</div>
+<div class="tip" id="fs129">val getClusterMemberLabels : cluster:HierarchivalClustering.Cluster&lt;&#39;a&gt; -&gt; int list list<br /><br />Full name: FSharpBio.ML.Unsupervised.HierarchivalClustering.getClusterMemberLabels</div>
+<div class="tip" id="fs130">val tmp : (int * int) list<br /><br />Full name: FSharpBio.ML.tmp</div>
+<div class="tip" id="fs131">val l : int list</div>
+<div class="tip" id="fs132">val nth : list:&#39;T list -&gt; index:int -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Collections.List.nth</div>
+<div class="tip" id="fs133">val head : list:&#39;T list -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Collections.List.head</div>
+<div class="tip" id="fs134">val sortBy : projection:(&#39;T -&gt; &#39;Key) -&gt; list:&#39;T list -&gt; &#39;T list (requires comparison)<br /><br />Full name: Microsoft.FSharp.Collections.List.sortBy</div>
+<div class="tip" id="fs135">val snd : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T2<br /><br />Full name: Microsoft.FSharp.Core.Operators.snd</div>
+<div class="tip" id="fs136">val test : seq&lt;int * string&gt;<br /><br />Full name: FSharpBio.ML.test</div>
+<div class="tip" id="fs137">val countBy : projection:(&#39;T -&gt; &#39;Key) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;Key * int&gt; (requires equality)<br /><br />Full name: Microsoft.FSharp.Collections.Seq.countBy</div>
+<div class="tip" id="fs138">val x : int * string</div>
+<div class="tip" id="fs139">val printHClust : clusterTree:HierarchivalClustering.Cluster&lt;&#39;T&gt; -&gt; seq&lt;string&gt;<br /><br />Full name: FSharpBio.ML.Unsupervised.HierarchivalClustering.printHClust</div>
+<div class="tip" id="fs140">static member Seq.write : path:string -&gt; data:seq&lt;&#39;a&gt; -&gt; unit</div>
+<div class="tip" id="fs141">namespace FSharpBio</div>
+<div class="tip" id="fs142">namespace FSharpBio.Statistics</div>
+<div class="tip" id="fs143">namespace FSharpBio.Statistics.Descriptive</div>
+<div class="tip" id="fs144">module StatisticalMeasure<br /><br />from FSharpBio.Statistics.Descriptive</div>
+<div class="tip" id="fs145">val words : string list<br /><br />Full name: FSharpBio.ML.words</div>
+<div class="tip" id="fs146">val wordLength : float list<br /><br />Full name: FSharpBio.ML.wordLength</div>
+<div class="tip" id="fs147">val numberOfLines : float list<br /><br />Full name: FSharpBio.ML.numberOfLines</div>
+<div class="tip" id="fs148">val wordFrequency : float list<br /><br />Full name: FSharpBio.ML.wordFrequency</div>
+<div class="tip" id="fs149">val wordEntries : float list<br /><br />Full name: FSharpBio.ML.wordEntries</div>
+<div class="tip" id="fs150">val wordDataSet : DenseMatrix<br /><br />Full name: FSharpBio.ML.wordDataSet</div>
+<div class="tip" id="fs151">val ofColumnsList : rows:int -&gt; cols:int -&gt; fll:float list list -&gt; DenseMatrix<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Double.DenseMatrix.ofColumnsList</div>
+<div class="tip" id="fs152">property List.Length: int</div>
+<div class="tip" id="fs153">val adjCenterWordPCA : (PCA.AdjustmentDirection -&gt; Matrix&lt;float&gt; -&gt; Matrix&lt;float&gt;)<br /><br />Full name: FSharpBio.ML.adjCenterWordPCA</div>
+<div class="tip" id="fs154">val wordPCA : PCA.Component []<br /><br />Full name: FSharpBio.ML.wordPCA</div>
+<div class="tip" id="fs155">val V : DenseMatrix<br /><br />Full name: FSharpBio.ML.V</div>
+<div class="tip" id="fs156">val getFeatureMatrixOfComponents : components:PCA.Component [] -&gt; DenseMatrix<br /><br />Full name: FSharpBio.ML.Unsupervised.PCA.getFeatureMatrixOfComponents</div>
+<div class="tip" id="fs157">val variables : Matrix&lt;float&gt;<br /><br />Full name: FSharpBio.ML.variables</div>
+<div class="tip" id="fs158">type AdjustmentDirection =<br />&#160;&#160;| Obverse<br />&#160;&#160;| Reverse<br /><br />Full name: FSharpBio.ML.Unsupervised.PCA.AdjustmentDirection</div>
+<div class="tip" id="fs159">union case PCA.AdjustmentDirection.Obverse: PCA.AdjustmentDirection</div>
+<div class="tip" id="fs160">val F : Matrix&lt;float&gt;<br /><br />Full name: FSharpBio.ML.F</div>
+<div class="tip" id="fs161">val sd : DenseVector<br /><br />Full name: FSharpBio.ML.sd</div>
+<div class="tip" id="fs162">Multiple items<br />module Array<br /><br />from FSharp.CoreX<br /><br />--------------------<br />module Array<br /><br />from Microsoft.FSharp.Collections</div>
+<div class="tip" id="fs163">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []<br /><br />Full name: Microsoft.FSharp.Collections.Array.map</div>
+<div class="tip" id="fs164">val c : PCA.Component</div>
+<div class="tip" id="fs165">val sqrt : value:&#39;T -&gt; &#39;U (requires member Sqrt)<br /><br />Full name: Microsoft.FSharp.Core.Operators.sqrt</div>
+<div class="tip" id="fs166">PCA.Component.EigenValue: float</div>
+<div class="tip" id="fs167">Multiple items<br />type DenseVector =<br />&#160;&#160;inherit Vector<br />&#160;&#160;new : storage:DenseVectorStorage&lt;float&gt; -&gt; DenseVector + 5 overloads<br />&#160;&#160;member AbsoluteMaximum : unit -&gt; float<br />&#160;&#160;member AbsoluteMaximumIndex : unit -&gt; int<br />&#160;&#160;member AbsoluteMinimum : unit -&gt; float<br />&#160;&#160;member AbsoluteMinimumIndex : unit -&gt; int<br />&#160;&#160;member CreateMatrix : rows:int * columns:int -&gt; Matrix&lt;float&gt;<br />&#160;&#160;member CreateVector : size:int -&gt; Vector&lt;float&gt;<br />&#160;&#160;member MaximumIndex : unit -&gt; int<br />&#160;&#160;member MinimumIndex : unit -&gt; int<br />&#160;&#160;member Norm : p:float -&gt; float<br />&#160;&#160;...<br /><br />Full name: MathNet.Numerics.LinearAlgebra.Double.DenseVector<br /><br />--------------------<br />DenseVector(storage: MathNet.Numerics.LinearAlgebra.Storage.DenseVectorStorage&lt;float&gt;) : unit<br />DenseVector(length: int) : unit<br />DenseVector(storage: float []) : unit</div>
+<div class="tip" id="fs168">DenseVector.OfEnumerable(enumerable: System.Collections.Generic.IEnumerable&lt;float&gt;) : DenseVector</div>
+<div class="tip" id="fs169">Matrix.Transpose() : Matrix&lt;float&gt;</div>
+<div class="tip" id="fs170">Vector.ToColumnMatrix() : Matrix&lt;float&gt;</div>
+<div class="tip" id="fs171">val M : DenseMatrix<br /><br />Full name: FSharpBio.ML.M</div>
+<div class="tip" id="fs172">DenseMatrix.OfArray(array: float [,]) : DenseMatrix</div>
+<div class="tip" id="fs173">Multiple items<br />module Array2D<br /><br />from FSharp.CoreX<br /><br />--------------------<br />module Array2D<br /><br />from Microsoft.FSharp.Collections</div>
+<div class="tip" id="fs174">val ofJaggedArray : arr:&#39;a [] [] -&gt; &#39;a [,]<br /><br />Full name: FSharp.CoreX.Array2D.ofJaggedArray</div>
+<div class="tip" id="fs175">Matrix.PointwiseMultiply(other: Matrix&lt;float&gt;) : Matrix&lt;float&gt;<br />Matrix.PointwiseMultiply(other: Matrix&lt;float&gt;, result: Matrix&lt;float&gt;) : unit</div>
+<div class="tip" id="fs176">val factor : float<br /><br />Full name: FSharpBio.ML.factor</div>
+<div class="tip" id="fs177">val f : comps:PCA.Component [] -&gt; float []<br /><br />Full name: FSharpBio.ML.f</div>
+<div class="tip" id="fs178">val comps : PCA.Component []</div>
+<div class="tip" id="fs179">val evar : float</div>
+<div class="tip" id="fs180">val var : items:seq&lt;float&gt; -&gt; float<br /><br />Full name: FSharpBio.Statistics.Descriptive.StatisticalMeasure.var</div>
+<div class="tip" id="fs181">val tmp2 : float []<br /><br />Full name: FSharpBio.ML.tmp2</div>
+<div class="tip" id="fs182">val a : float []<br /><br />Full name: FSharpBio.ML.a</div>
+<div class="tip" id="fs183">val av : Vector&lt;float&gt;<br /><br />Full name: FSharpBio.ML.av</div>
+<div class="tip" id="fs184">val bv : Vector&lt;float&gt;<br /><br />Full name: FSharpBio.ML.bv</div>
+<div class="tip" id="fs185">val cosV : float<br /><br />Full name: FSharpBio.ML.cosV</div>
+<div class="tip" id="fs186">Vector.Norm(p: float) : float</div>
+<div class="tip" id="fs187">module Correlation<br /><br />from FSharpBio.Statistics.Descriptive</div>
+<div class="tip" id="fs188">val pearsonCorrelation : dataA:seq&lt;float&gt; -&gt; dataB:System.Collections.Generic.IEnumerable&lt;float&gt; -&gt; Statistics.Descriptive.Correlation.CorrelationCoefficient<br /><br />Full name: FSharpBio.Statistics.Descriptive.Correlation.pearsonCorrelation</div>
+<div class="tip" id="fs189">val v : float<br /><br />Full name: FSharpBio.ML.v</div>
+<div class="tip" id="fs190">val a1 : float<br /><br />Full name: FSharpBio.ML.a1</div>
+<div class="tip" id="fs191">val b1 : float<br /><br />Full name: FSharpBio.ML.b1</div>
+<div class="tip" id="fs192">val sumBy : projection:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U (requires member ( + ) and member get_Zero)<br /><br />Full name: Microsoft.FSharp.Collections.Array.sumBy</div>
+
+        </div>
+        <div class="span3">
+          <img src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">FSharpBio</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.com/packages/FSharpBio">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio">Source Code on GitHub</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/LICENSE.txt">License</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">Tutorial</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.IO.html">FSharpBio IO</a></li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.ML.html">Mashine learning</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/fsprojects/FSharpBio"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  </body>
+  </html>

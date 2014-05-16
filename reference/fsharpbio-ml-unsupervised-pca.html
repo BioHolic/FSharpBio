@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PCA - FSharpBio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Timo Mühlhaus">
+
+    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/style.css" />
+    <script type="text/javascript" src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/fsprojects/FSharpBio">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">FSharpBio</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+
+
+<h1>PCA</h1>
+<div class="xmldoc">
+</div>
+
+<!-- Render nested types and modules, if there are any -->
+  <h2>Nested types and modules</h2>
+  <div>
+      <table class="table table-bordered type-list">
+    <thead>
+      <tr><td>Type</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="type-name">
+            <a href="fsharpbio-ml-unsupervised-pca-adjustmentdirection.html">AdjustmentDirection</a>
+          </td>
+          <td class="xmldoc"></td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fsharpbio-ml-unsupervised-pca-adjustmentfactory.html">AdjustmentFactory</a>
+          </td>
+          <td class="xmldoc"><p>AdjustmentFactorygiven,given a dataset,</p>
+</td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fsharpbio-ml-unsupervised-pca-component.html">Component</a>
+          </td>
+          <td class="xmldoc"><p>Represents a principle component</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+  <h3>Functions and values</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1298', 1298)" onmouseover="showTip(event, '1298', 1298)">
+            compute adj dataMatrix
+          </code>
+          <div class="tip" id="1298">
+            <strong>Signature:</strong> adj:AdjustmentFactory -&gt; dataMatrix:&#39;?53693 -&gt; Component []<br />
+                          <strong>Type parameters:</strong> '?53693          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L164-164" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes a principal componant analysis</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1299', 1299)" onmouseover="showTip(event, '1299', 1299)">
+            computeOfCovarianceMatrix covMatrix
+          </code>
+          <div class="tip" id="1299">
+            <strong>Signature:</strong> covMatrix:&#39;?53689 -&gt; Component []<br />
+                          <strong>Type parameters:</strong> '?53689          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L137-137" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes a principal componant analysis of a given covariance matrix</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1300', 1300)" onmouseover="showTip(event, '1300', 1300)">
+            computeOfMatrix dataMatrix
+          </code>
+          <div class="tip" id="1300">
+            <strong>Signature:</strong> dataMatrix:&#39;?53691 -&gt; Component []<br />
+                          <strong>Type parameters:</strong> '?53691          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L148-148" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Computes a principal componant analysis of a given covariance matrix
+!Attention: Matrix needs to be centered before</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1301', 1301)" onmouseover="showTip(event, '1301', 1301)">
+            contributionOfTransformed (...)
+          </code>
+          <div class="tip" id="1301">
+            <strong>Signature:</strong> transformedDataMatrix:&#39;?53701 -&gt; Matrix&lt;float&gt;<br />
+                          <strong>Type parameters:</strong> '?53701          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L211-211" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Contribution of an observation to a component</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1302', 1302)" onmouseover="showTip(event, '1302', 1302)">
+            createComponent (...)
+          </code>
+          <div class="tip" id="1302">
+            <strong>Signature:</strong> eigenVector:float [] -&gt; eigenValue:float -&gt; loadings:float [] -&gt; proportion:float -&gt; cumulativeProportion:float -&gt; index:int -&gt; Component<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L98-98" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Creates a principle component type</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1303', 1303)" onmouseover="showTip(event, '1303', 1303)">
+            getCommunality components
+          </code>
+          <div class="tip" id="1303">
+            <strong>Signature:</strong> components:Component [] -&gt; float []<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L181-181" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Returns communality</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1304', 1304)" onmouseover="showTip(event, '1304', 1304)">
+            getFeatureMatrixOfComponents components
+          </code>
+          <div class="tip" id="1304">
+            <strong>Signature:</strong> components:Component [] -&gt; DenseMatrix<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L173-173" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Returns feature matrix (eigenvector matrix) from components</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1305', 1305)" onmouseover="showTip(event, '1305', 1305)">
+            importanceOfTransformed (...)
+          </code>
+          <div class="tip" id="1305">
+            <strong>Signature:</strong> transformedDataMatrix:&#39;?53703 -&gt; Matrix&lt;float&gt;<br />
+                          <strong>Type parameters:</strong> '?53703          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L223-223" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Calculates the squared cosine of a component with an observation</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1306', 1306)" onmouseover="showTip(event, '1306', 1306)">
+            revert adj components dataMatrix
+          </code>
+          <div class="tip" id="1306">
+            <strong>Signature:</strong> adj:AdjustmentFactory -&gt; components:Component [] -&gt; dataMatrix:&#39;?53699 -&gt; Matrix&lt;float&gt;<br />
+                          <strong>Type parameters:</strong> '?53699          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L202-202" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Reverts a set of projected data into it's original form. Complete reverse
+transformation is only possible if all components are present, and, if the
+data has been standardized, the original standard deviation and means of
+the original matrix are known.</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1307', 1307)" onmouseover="showTip(event, '1307', 1307)">
+            toAdjustCenter data
+          </code>
+          <div class="tip" id="1307">
+            <strong>Signature:</strong> data:Matrix&lt;float&gt; -&gt; AdjustmentFactory<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L45-45" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Returns an AdjustmentFactory which centers the data</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1308', 1308)" onmouseover="showTip(event, '1308', 1308)">
+            toAdjustCorrelation data
+          </code>
+          <div class="tip" id="1308">
+            <strong>Signature:</strong> data:Matrix&lt;float&gt; -&gt; AdjustmentFactory<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L81-81" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Returns an AdjustmentFactory which centers and standardize the data</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1309', 1309)" onmouseover="showTip(event, '1309', 1309)">
+            toAdjustCovariance data
+          </code>
+          <div class="tip" id="1309">
+            <strong>Signature:</strong> data:Matrix&lt;float&gt; -&gt; AdjustmentFactory<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L55-55" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Returns an AdjustmentFactory as covariance matrix</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1310', 1310)" onmouseover="showTip(event, '1310', 1310)">
+            toAdjustStandardize data
+          </code>
+          <div class="tip" id="1310">
+            <strong>Signature:</strong> data:Matrix&lt;float&gt; -&gt; AdjustmentFactory<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L66-66" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Returns an AdjustmentFactory which centers and standardize the data</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1311', 1311)" onmouseover="showTip(event, '1311', 1311)">
+            transform adj components dataMatrix
+          </code>
+          <div class="tip" id="1311">
+            <strong>Signature:</strong> adj:AdjustmentFactory -&gt; components:Component [] -&gt; dataMatrix:&#39;?53697 -&gt; Matrix&lt;float&gt;<br />
+                          <strong>Type parameters:</strong> '?53697          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L191-191" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Projects a given matrix into principal component space (projections or factor scores)</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1312', 1312)" onmouseover="showTip(event, '1312', 1312)">
+            zipScores (...)
+          </code>
+          <div class="tip" id="1312">
+            <strong>Signature:</strong> componentIndex1:int -&gt; componentIndex2:&#39;?53706 -&gt; transformedDataMatrix:&#39;?53707 -&gt; seq&lt;float * float&gt;<br />
+                          <strong>Type parameters:</strong> '?53706, '?53707          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L237-237" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1313', 1313)" onmouseover="showTip(event, '1313', 1313)">
+            zipScree components
+          </code>
+          <div class="tip" id="1313">
+            <strong>Signature:</strong> components:Component [] -&gt; seq&lt;float * float&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/PrincipalComponentAnalysis.fs#L234-234" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Returns xy-coordinates for scree plot in a tuple (component number vs. EigenValue)  <br />
+Scree plot: represents the ability of PCs to explain de variation in data</p>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="span3">
+          <img src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">FSharpBio</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.com/packages/FSharpBio">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio">Source Code on GitHub</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/LICENSE.txt">License</a></li>
+            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">Tutorial</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.IO.html">FSharpBio IO</a></li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.ML.html">Mashine learning</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/fsprojects/FSharpBio"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  </body>
+  </html>
