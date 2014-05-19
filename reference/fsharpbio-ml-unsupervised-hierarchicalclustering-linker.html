@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Parameters - FSharpBio</title>
+    <title>Linker - FSharpBio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Timo Mühlhaus">
@@ -35,139 +35,183 @@
 
 
 
-<h1>Parameters</h1>
+<h1>Linker</h1>
 <div class="xmldoc">
+<p>The linkage criterion determines the distance between sets of observations as a function of the pairwise distances between observations</p>
 </div>
-  <h3>Record Fields</h3>
+
+<!-- Render nested types and modules, if there are any -->
+  <h2>Nested types and modules</h2>
+  <div>
+      <table class="table table-bordered type-list">
+    <thead>
+      <tr><td>Type</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="type-name">
+            <a href="fsharpbio-ml-unsupervised-hierarchicalclustering-linker-lancwilliamslinker.html">LancWilliamsLinker</a>
+          </td>
+          <td class="xmldoc"><p>Signiture type for Lance and Williams Linker functions
+D(A u B,C) = alpa1 d(A,C) +  alpa2 d(B,C) + beta d(A,B) + gamma |d(A,C) - d(BC))|</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Record Field</td><td>Description</td></tr>
+      <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '760', 760)" onmouseover="showTip(event, '760', 760)">
-            Cleavage
+          <code onmouseout="hideTip(event, '419', 419)" onmouseover="showTip(event, '419', 419)">
+            centroidLwLinker (...)
           </code>
-          <div class="tip" id="760">
-            <strong>Signature:</strong> string<br />
+          <div class="tip" id="419">
+            <strong>Signature:</strong> (int * int * int) -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/IO/WebServices/WSTargetP.fs#L30-30" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L52-52" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Centroid linkage criterion (UPGMA)
+Calculates the 
+d(A u B, C)</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '761', 761)" onmouseover="showTip(event, '761', 761)">
-            cTP
+          <code onmouseout="hideTip(event, '420', 420)" onmouseover="showTip(event, '420', 420)">
+            completeLwLinker (...)
           </code>
-          <div class="tip" id="761">
-            <strong>Signature:</strong> string<br />
+          <div class="tip" id="420">
+            <strong>Signature:</strong> (int * int * int) -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float&lt;MeasureOne&gt;<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/IO/WebServices/WSTargetP.fs#L32-32" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L25-25" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Complete linkage criterion
+Calculates the 
+d(A u B, C)</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '762', 762)" onmouseover="showTip(event, '762', 762)">
-            mTP
+          <code onmouseout="hideTip(event, '421', 421)" onmouseover="showTip(event, '421', 421)">
+            medianLwLinker (...)
           </code>
-          <div class="tip" id="762">
-            <strong>Signature:</strong> string<br />
+          <div class="tip" id="421">
+            <strong>Signature:</strong> (int * int * int) -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float&lt;MeasureOne&gt;<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/IO/WebServices/WSTargetP.fs#L36-36" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L31-31" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Median linkage criterion
+Calculates the 
+d(A u B, C)</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '763', 763)" onmouseover="showTip(event, '763', 763)">
-            Organism
+          <code onmouseout="hideTip(event, '422', 422)" onmouseover="showTip(event, '422', 422)">
+            singleLwLinker (...)
           </code>
-          <div class="tip" id="763">
-            <strong>Signature:</strong> string<br />
+          <div class="tip" id="422">
+            <strong>Signature:</strong> (int * int * int) -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float&lt;MeasureOne&gt;<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/IO/WebServices/WSTargetP.fs#L28-28" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L18-18" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Single linkage criterion
+Calculates the minimal distance between all elements of a cluster
+d(A u B, C)</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '764', 764)" onmouseover="showTip(event, '764', 764)">
-            Other
+          <code onmouseout="hideTip(event, '423', 423)" onmouseover="showTip(event, '423', 423)">
+            upgmaLwLinker (...)
           </code>
-          <div class="tip" id="764">
-            <strong>Signature:</strong> string<br />
+          <div class="tip" id="423">
+            <strong>Signature:</strong> (int * int * int) -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/IO/WebServices/WSTargetP.fs#L38-38" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L43-43" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Unweighted Group Average linkage criterion (UPGMA)
+Calculates the 
+d(A u B, C)</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '765', 765)" onmouseover="showTip(event, '765', 765)">
-            SequenceData
+          <code onmouseout="hideTip(event, '424', 424)" onmouseover="showTip(event, '424', 424)">
+            wardLwLinker (...)
           </code>
-          <div class="tip" id="765">
-            <strong>Signature:</strong> Sequence array<br />
+          <div class="tip" id="424">
+            <strong>Signature:</strong> (int * int * int) -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/IO/WebServices/WSTargetP.fs#L40-40" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L62-62" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Ward linkage criterion (UPGMA)
+Calculates the 
+d(A u B, C)</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '766', 766)" onmouseover="showTip(event, '766', 766)">
-            SP
+          <code onmouseout="hideTip(event, '425', 425)" onmouseover="showTip(event, '425', 425)">
+            weightedGroupAverageLwLinker (...)
           </code>
-          <div class="tip" id="766">
-            <strong>Signature:</strong> string<br />
+          <div class="tip" id="425">
+            <strong>Signature:</strong> (int * int * int) -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float&lt;MeasureOne&gt;<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/IO/WebServices/WSTargetP.fs#L34-34" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L37-37" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Weighted Group Average linkage criterion
+Calculates the 
+d(A u B, C)</p>
+
         </td>
       </tr>
     </tbody>

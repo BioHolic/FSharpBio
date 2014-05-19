@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Formula - FSharpBio</title>
+    <title>HierarchicalClustering - FSharpBio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Timo Mühlhaus">
@@ -35,8 +35,9 @@
 
 
 
-<h1>Formula</h1>
+<h1>HierarchicalClustering</h1>
 <div class="xmldoc">
+<p>Agglomerative hierarchical clustering</p>
 </div>
 
 <!-- Render nested types and modules, if there are any -->
@@ -49,9 +50,30 @@
     <tbody>
         <tr>
           <td class="type-name">
-            <a href="fsharpbio-formula-formula.html">Formula</a>
+            <a href="fsharpbio-ml-unsupervised-hierarchicalclustering-cluster-1.html">Cluster<'T></a>
           </td>
-          <td class="xmldoc"><p>Type abreviation for Map<Elements.Element,int></p>
+          <td class="xmldoc"><p>Cluster type</p>
+</td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fsharpbio-ml-unsupervised-hierarchicalclustering-distancecaching-1.html">DistanceCaching<'T></a>
+          </td>
+          <td class="xmldoc"><p>Class for chaching already calculated distances to speed up cluster build</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+  <table class="table table-bordered module-list">
+    <thead>
+      <tr><td>Module</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="module-name">
+            <a href="fsharpbio-ml-unsupervised-hierarchicalclustering-linker.html">Linker</a>
+          </td>
+          <td class="xmldoc"><p>The linkage criterion determines the distance between sets of observations as a function of the pairwise distances between observations</p>
 </td>
         </tr>
     </tbody>
@@ -68,171 +90,134 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '298', 298)" onmouseover="showTip(event, '298', 298)">
-            add f1 f2
+          <code onmouseout="hideTip(event, '437', 437)" onmouseover="showTip(event, '437', 437)">
+            createCluster id dist left right
           </code>
-          <div class="tip" id="298">
-            <strong>Signature:</strong> f1:Formula -&gt; f2:Formula -&gt; Map&lt;Element,int&gt;<br />
-                      </div>
+          <div class="tip" id="437">
+            <strong>Signature:</strong> id:int -&gt; dist:float -&gt; left:Cluster&lt;&#39;T&gt; -&gt; right:Cluster&lt;&#39;T&gt; -&gt; Cluster&lt;&#39;T&gt;<br />
+                          <strong>Type parameters:</strong> 'T          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L30-30" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L95-95" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>adds two formula</p>
+          <p>Creates a parent cluster</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '299', 299)" onmouseover="showTip(event, '299', 299)">
-            averageMass f
+          <code onmouseout="hideTip(event, '438', 438)" onmouseover="showTip(event, '438', 438)">
+            createClusterValue id value
           </code>
-          <div class="tip" id="299">
-            <strong>Signature:</strong> f:Formula -&gt; float<br />
-                      </div>
+          <div class="tip" id="438">
+            <strong>Signature:</strong> id:int -&gt; value:&#39;T -&gt; Cluster&lt;&#39;T&gt;<br />
+                          <strong>Type parameters:</strong> 'T          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L38-38" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L100-100" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Returns average mass of sum formula</p>
+          <p>Creates a cluster</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '300', 300)" onmouseover="showTip(event, '300', 300)">
-            emptyFormula 
+          <code onmouseout="hideTip(event, '439', 439)" onmouseover="showTip(event, '439', 439)">
+            cutHClust desiredNumber clusterTree
           </code>
-          <div class="tip" id="300">
-            <strong>Signature:</strong> Formula<br />
-                      </div>
+          <div class="tip" id="439">
+            <strong>Signature:</strong> desiredNumber:int -&gt; clusterTree:Cluster&lt;&#39;T&gt; -&gt; Cluster&lt;&#39;T&gt; list list<br />
+                          <strong>Type parameters:</strong> 'T          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L23-23" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L250-250" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Empty formula</p>
+          <p>Cuts a tree, as resulting from hclust, into several groups by specifying the desired number(s).
+If the desired number is odd the function cut the cluster with maximal distance</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '301', 301)" onmouseover="showTip(event, '301', 301)">
-            lableElement f unlabled labled
+          <code onmouseout="hideTip(event, '440', 440)" onmouseover="showTip(event, '440', 440)">
+            flattenHClust clusterTree
           </code>
-          <div class="tip" id="301">
-            <strong>Signature:</strong> f:Formula -&gt; unlabled:Element -&gt; labled:Element -&gt; Formula<br />
-                      </div>
+          <div class="tip" id="440">
+            <strong>Signature:</strong> clusterTree:Cluster&lt;&#39;T&gt; -&gt; Cluster&lt;&#39;T&gt; list<br />
+                          <strong>Type parameters:</strong> 'T          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L47-47" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L237-237" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Lables all elements of a certain kind within a formula</p>
+          <p>Returns a flatten list containing Leafs</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '302', 302)" onmouseover="showTip(event, '302', 302)">
-            lableNumberOfElement (...)
+          <code onmouseout="hideTip(event, '441', 441)" onmouseover="showTip(event, '441', 441)">
+            generate distance linker data
           </code>
-          <div class="tip" id="302">
-            <strong>Signature:</strong> f:Formula -&gt; unlabled:Element -&gt; labled:Element -&gt; number:int -&gt; Map&lt;Element,int&gt;<br />
-                      </div>
+          <div class="tip" id="441">
+            <strong>Signature:</strong> distance:Distance&lt;&#39;T&gt; -&gt; linker:LancWilliamsLinker -&gt; data:seq&lt;&#39;T&gt; -&gt; Cluster&lt;&#39;T&gt;<br />
+                          <strong>Type parameters:</strong> 'T          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L55-55" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L161-161" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Lables a given number of elements of a certain kind within a formula</p>
+          <p>Builds a hierarchy of clusters of data containing cluster labels</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '303', 303)" onmouseover="showTip(event, '303', 303)">
-            monoisoMass f
+          <code onmouseout="hideTip(event, '442', 442)" onmouseover="showTip(event, '442', 442)">
+            getClusterMemberLabels cluster
           </code>
-          <div class="tip" id="303">
-            <strong>Signature:</strong> f:Formula -&gt; float<br />
-                      </div>
+          <div class="tip" id="442">
+            <strong>Signature:</strong> cluster:Cluster&lt;&#39;a&gt; -&gt; int list list<br />
+                          <strong>Type parameters:</strong> 'a          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L42-42" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L228-228" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Returns monoisotopic mass of sum formula</p>
+          <p>Returns</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '304', 304)" onmouseover="showTip(event, '304', 304)">
-            parseFormulaString strFormula
+          <code onmouseout="hideTip(event, '443', 443)" onmouseover="showTip(event, '443', 443)">
+            printHClust clusterTree
           </code>
-          <div class="tip" id="304">
-            <strong>Signature:</strong> strFormula:string -&gt; Formula<br />
-                      </div>
+          <div class="tip" id="443">
+            <strong>Signature:</strong> clusterTree:Cluster&lt;&#39;T&gt; -&gt; seq&lt;string&gt;<br />
+                          <strong>Type parameters:</strong> 'T          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L64-64" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L277-277" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Parse formula string and returns formula type</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '305', 305)" onmouseover="showTip(event, '305', 305)">
-            substract f1 f2
-          </code>
-          <div class="tip" id="305">
-            <strong>Signature:</strong> f1:Formula -&gt; f2:Formula -&gt; Map&lt;Element,int&gt;<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L34-34" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>substract two formula</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '306', 306)" onmouseover="showTip(event, '306', 306)">
-            toString f
-          </code>
-          <div class="tip" id="306">
-            <strong>Signature:</strong> f:Formula -&gt; string<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Formula.fs#L26-26" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Returns Formula as string</p>
+          <p>Converts clusters into string seq</p>
 
         </td>
       </tr>

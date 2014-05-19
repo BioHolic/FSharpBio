@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Venn - FSharpBio</title>
+    <title>LancWilliamsLinker - FSharpBio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Timo Mühlhaus">
@@ -35,83 +35,11 @@
 
 
 
-<h1>Venn</h1>
+<h1>LancWilliamsLinker</h1>
 <div class="xmldoc">
+<p>Signiture type for Lance and Williams Linker functions
+D(A u B,C) = alpa1 d(A,C) +  alpa2 d(B,C) + beta d(A,B) + gamma |d(A,C) - d(BC))|</p>
 </div>
-
-<!-- Render nested types and modules, if there are any -->
-  <h2>Nested types and modules</h2>
-  <div>
-      <table class="table table-bordered type-list">
-    <thead>
-      <tr><td>Type</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td class="type-name">
-            <a href="fsharpbio-statistics-descriptive-venn-venn2n.html">Venn2n</a>
-          </td>
-          <td class="xmldoc"><p>Venn with 2 Set (a;b)</p>
-</td>
-        </tr>
-        <tr>
-          <td class="type-name">
-            <a href="fsharpbio-statistics-descriptive-venn-venn3n.html">Venn3n</a>
-          </td>
-          <td class="xmldoc"><p>Venn with 3 Set (a;b;c)</p>
-</td>
-        </tr>
-    </tbody>
-  </table>
-
-  </div>
-
-  <h3>Functions and values</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Function or value</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '558', 558)" onmouseover="showTip(event, '558', 558)">
-            ofSetAB a b
-          </code>
-          <div class="tip" id="558">
-            <strong>Signature:</strong> a:Set&lt;&#39;a&gt; -&gt; b:Set&lt;&#39;a&gt; -&gt; Venn2n<br />
-                          <strong>Type parameters:</strong> 'a          </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Venn.fs#L21-21" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Calculates a Venn out of two given Sets</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '559', 559)" onmouseover="showTip(event, '559', 559)">
-            ofSetABC a b c
-          </code>
-          <div class="tip" id="559">
-            <strong>Signature:</strong> a:Set&lt;&#39;a&gt; -&gt; b:Set&lt;&#39;a&gt; -&gt; c:Set&lt;&#39;a&gt; -&gt; Venn3n<br />
-                          <strong>Type parameters:</strong> 'a          </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Venn.fs#L51-51" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Calculates a Venn out of 3 given Sets</p>
-
-        </td>
-      </tr>
-    </tbody>
-  </table>
 
         </div>
         <div class="span3">

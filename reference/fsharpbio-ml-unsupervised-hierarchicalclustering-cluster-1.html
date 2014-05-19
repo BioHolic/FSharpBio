@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Venn - FSharpBio</title>
+    <title>Cluster<'T> - FSharpBio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Timo Mühlhaus">
@@ -35,78 +35,51 @@
 
 
 
-<h1>Venn</h1>
+<h1>Cluster<'T></h1>
 <div class="xmldoc">
+<p>Cluster type</p>
 </div>
-
-<!-- Render nested types and modules, if there are any -->
-  <h2>Nested types and modules</h2>
-  <div>
-      <table class="table table-bordered type-list">
-    <thead>
-      <tr><td>Type</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td class="type-name">
-            <a href="fsharpbio-statistics-descriptive-venn-venn2n.html">Venn2n</a>
-          </td>
-          <td class="xmldoc"><p>Venn with 2 Set (a;b)</p>
-</td>
-        </tr>
-        <tr>
-          <td class="type-name">
-            <a href="fsharpbio-statistics-descriptive-venn-venn3n.html">Venn3n</a>
-          </td>
-          <td class="xmldoc"><p>Venn with 3 Set (a;b;c)</p>
-</td>
-        </tr>
-    </tbody>
-  </table>
-
-  </div>
-
-  <h3>Functions and values</h3>
+  <h3>Union Cases</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Function or value</td><td>Description</td></tr>
+      <tr><td>Union Case</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '558', 558)" onmouseover="showTip(event, '558', 558)">
-            ofSetAB a b
+          <code onmouseout="hideTip(event, '757', 757)" onmouseover="showTip(event, '757', 757)">
+            Leaf(int,int,&#39;T)
           </code>
-          <div class="tip" id="558">
-            <strong>Signature:</strong> a:Set&lt;&#39;a&gt; -&gt; b:Set&lt;&#39;a&gt; -&gt; Venn2n<br />
-                          <strong>Type parameters:</strong> 'a          </div>
+          <div class="tip" id="757">
+            <strong>Signature:</strong> int * int * &#39;T<br />
+                      </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Venn.fs#L21-21" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L79-79" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Calculates a Venn out of two given Sets</p>
+          <p>Cluster leaf with: ID <em> leafCount </em> data</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '559', 559)" onmouseover="showTip(event, '559', 559)">
-            ofSetABC a b c
+          <code onmouseout="hideTip(event, '758', 758)" onmouseover="showTip(event, '758', 758)">
+            Node(...)
           </code>
-          <div class="tip" id="559">
-            <strong>Signature:</strong> a:Set&lt;&#39;a&gt; -&gt; b:Set&lt;&#39;a&gt; -&gt; c:Set&lt;&#39;a&gt; -&gt; Venn3n<br />
-                          <strong>Type parameters:</strong> 'a          </div>
+          <div class="tip" id="758">
+            <strong>Signature:</strong> int * float * int * Cluster&lt;&#39;T&gt; * Cluster&lt;&#39;T&gt;<br />
+                      </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Venn.fs#L51-51" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/ML/Unsupervised/HierarchicalClustering.fs#L77-77" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Calculates a Venn out of 3 given Sets</p>
+          <p>Cluster node with: ID <em> distance </em> leafCount <em> cluster left </em> cluster right</p>
 
         </td>
       </tr>

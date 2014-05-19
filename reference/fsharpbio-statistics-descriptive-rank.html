@@ -12,8 +12,8 @@
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
-    <link type="text/css" rel="stylesheet" href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/style.css" />
-    <script type="text/javascript" src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/content/tips.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://muehlhaus.github.io/FSharpBio/content/style.css" />
+    <script type="text/javascript" src="http://muehlhaus.github.io/FSharpBio/content/tips.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -24,9 +24,9 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li><a href="http://fsharp.org">fsharp.org</a></li>
-          <li><a href="http://github.com/fsprojects/FSharpBio">github page</a></li>
+          <li><a href="https://github.com/muehlhaus/FSharpBio">github page</a></li>
         </ul>
-        <h3 class="muted"><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">FSharpBio</a></h3>
+          <h3 class="muted"><a href="http://muehlhaus.github.io/FSharpBio/index.html">FSharpBio</a></h3>
       </div>
       <hr />
       <div class="row">
@@ -37,6 +37,7 @@
 
 <h1>Rank</h1>
 <div class="xmldoc">
+<p>Module to Calculate the rank. The rank of a number is its size relative to other values in a sequence</p>
 </div>
 
 <!-- Render nested types and modules, if there are any -->
@@ -51,7 +52,8 @@
           <td class="type-name">
             <a href="fsharpbio-statistics-descriptive-rank-rankedvalue-1.html">RankedValue<'a></a>
           </td>
-          <td class="xmldoc"></td>
+          <td class="xmldoc"><p>RanlkedValue type contains the original value (Value), its rank (RankIndex) and its original position (Position)</p>
+</td>
         </tr>
     </tbody>
   </table>
@@ -67,127 +69,121 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1384', 1384)" onmouseover="showTip(event, '1384', 1384)">
+          <code onmouseout="hideTip(event, '471', 471)" onmouseover="showTip(event, '471', 471)">
             breakByMax data
           </code>
-          <div class="tip" id="1384">
-            <strong>Signature:</strong> data:seq&lt;&#39;?53480&gt; -&gt; seq&lt;RankedValue&lt;&#39;?53480&gt;&gt;<br />
-                          <strong>Type parameters:</strong> '?53480          </div>
+          <div class="tip" id="471">
+            <strong>Signature:</strong> data:seq&lt;&#39;?59017&gt; -&gt; seq&lt;RankedValue&lt;&#39;?59017&gt;&gt;<br />
+                          <strong>Type parameters:</strong> '?59017          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L37-37" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L44-44" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Returns the RankedValue of a number in a sequence of numbers.
+Remark: breaks ties by using maximum value</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1386', 1386)" onmouseover="showTip(event, '1386', 1386)">
+          <code onmouseout="hideTip(event, '472', 472)" onmouseover="showTip(event, '472', 472)">
             breakByMaxDesc data
           </code>
-          <div class="tip" id="1386">
-            <strong>Signature:</strong> data:seq&lt;&#39;?53488&gt; -&gt; seq&lt;RankedValue&lt;&#39;?53488&gt;&gt;<br />
-                          <strong>Type parameters:</strong> '?53488          </div>
+          <div class="tip" id="472">
+            <strong>Signature:</strong> data:seq&lt;&#39;?59025&gt; -&gt; seq&lt;RankedValue&lt;&#39;?59025&gt;&gt;<br />
+                          <strong>Type parameters:</strong> '?59025          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L80-80" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L105-105" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Returns the RankedValue of a number (ascending order) in a sequence of numbers.
+Remark: breaks ties by using maximum value</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1387', 1387)" onmouseover="showTip(event, '1387', 1387)">
+          <code onmouseout="hideTip(event, '473', 473)" onmouseover="showTip(event, '473', 473)">
             breakByMean data
           </code>
-          <div class="tip" id="1387">
-            <strong>Signature:</strong> data:seq&lt;&#39;?53478&gt; -&gt; seq&lt;RankedValue&lt;&#39;?53478&gt;&gt;<br />
-                          <strong>Type parameters:</strong> '?53478          </div>
+          <div class="tip" id="473">
+            <strong>Signature:</strong> data:seq&lt;&#39;?59015&gt; -&gt; seq&lt;RankedValue&lt;&#39;?59015&gt;&gt;<br />
+                          <strong>Type parameters:</strong> '?59015          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L25-25" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L28-28" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Returns the RankedValue of a number in a sequence of numbers.
+Remark: breaks ties by mean</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1388', 1388)" onmouseover="showTip(event, '1388', 1388)">
+          <code onmouseout="hideTip(event, '474', 474)" onmouseover="showTip(event, '474', 474)">
             breakByMeanDesc data
           </code>
-          <div class="tip" id="1388">
-            <strong>Signature:</strong> data:seq&lt;&#39;?53486&gt; -&gt; seq&lt;RankedValue&lt;&#39;?53486&gt;&gt;<br />
-                          <strong>Type parameters:</strong> '?53486          </div>
+          <div class="tip" id="474">
+            <strong>Signature:</strong> data:seq&lt;&#39;?59023&gt; -&gt; seq&lt;RankedValue&lt;&#39;?59023&gt;&gt;<br />
+                          <strong>Type parameters:</strong> '?59023          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L68-68" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L89-89" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Returns the RankedValue of a number (ascending order) in a sequence of numbers.
+Remark: breaks ties by mean</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1389', 1389)" onmouseover="showTip(event, '1389', 1389)">
+          <code onmouseout="hideTip(event, '475', 475)" onmouseover="showTip(event, '475', 475)">
             breakByMin data
           </code>
-          <div class="tip" id="1389">
-            <strong>Signature:</strong> data:seq&lt;&#39;?53482&gt; -&gt; seq&lt;RankedValue&lt;&#39;?53482&gt;&gt;<br />
-                          <strong>Type parameters:</strong> '?53482          </div>
+          <div class="tip" id="475">
+            <strong>Signature:</strong> data:seq&lt;&#39;?59019&gt; -&gt; seq&lt;RankedValue&lt;&#39;?59019&gt;&gt;<br />
+                          <strong>Type parameters:</strong> '?59019          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L49-49" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L60-60" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
+          <p>Returns the RankedValue of a number in a sequence of numbers.
+Remark: breaks ties by using minimum value</p>
+
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1390', 1390)" onmouseover="showTip(event, '1390', 1390)">
+          <code onmouseout="hideTip(event, '476', 476)" onmouseover="showTip(event, '476', 476)">
             breakByMinDesc data
           </code>
-          <div class="tip" id="1390">
-            <strong>Signature:</strong> data:seq&lt;&#39;?53490&gt; -&gt; seq&lt;RankedValue&lt;&#39;?53490&gt;&gt;<br />
-                          <strong>Type parameters:</strong> '?53490          </div>
+          <div class="tip" id="476">
+            <strong>Signature:</strong> data:seq&lt;&#39;?59027&gt; -&gt; seq&lt;RankedValue&lt;&#39;?59027&gt;&gt;<br />
+                          <strong>Type parameters:</strong> '?59027          </div>
         </td>
         <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L92-92" class="github-link">
+            <a href="https://github.com/muehlhaus/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L121-121" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
+          <p>Returns the RankedValue of a number (ascending order) in a sequence of numbers.
+Remark: breaks ties by using minimum value</p>
 
-          <code onmouseout="hideTip(event, '1391', 1391)" onmouseover="showTip(event, '1391', 1391)">
-            distinctDesc data
-          </code>
-          <div class="tip" id="1391">
-            <strong>Signature:</strong> data:seq&lt;&#39;?53484&gt; -&gt; seq&lt;RankedValue&lt;&#39;?53484&gt;&gt;<br />
-                          <strong>Type parameters:</strong> '?53484          </div>
-        </td>
-        <td class="xmldoc">
-            <a href="http://github.com/fsprojects/FSharpBio/tree/master/src/FSharpBio/Statistics/Descriptive/Rank.fs#L61-61" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          
         </td>
       </tr>
     </tbody>
@@ -195,26 +191,25 @@
 
         </div>
         <div class="span3">
-          <img src="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <img src="/FSharpBio/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
           <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
             <li class="nav-header">FSharpBio</li>
-            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/index.html">Home page</a></li>
+            <li><a href="http://muehlhaus.github.io/FSharpBio/index.html">Home page</a></li>
             <li class="divider"></li>
-            <li><a href="http://nuget.com/packages/FSharpBio">Get Library via NuGet</a></li>
-            <li><a href="http://github.com/fsprojects/FSharpBio">Source Code on GitHub</a></li>
-            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/LICENSE.txt">License</a></li>
-            <li><a href="http://github.com/fsprojects/FSharpBio/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            <li><a href="https://github.com/muehlhaus/FSharpBio">Source Code on GitHub</a></li>
+            <li><a href="https://github.com/muehlhaus/FSharpBio/blob/master/LICENSE.txt">License</a></li>
+            <li><a href="https://github.com/muehlhaus/FSharpBio/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
             
             <li class="nav-header">Tutorial</li>
-            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.IO.html">FSharpBio IO</a></li>
-            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/FSharpBio.ML.html">Mashine learning</a></li>
+            <li><a href="http://muehlhaus.github.io/FSharpBio/FSharpBio.IO.html">FSharpBio IO</a></li>
+            <li><a href="http://muehlhaus.github.io/FSharpBio/FSharpBio.ML.html">Machine learning</a></li>
 
             <li class="nav-header">Documentation</li>
-            <li><a href="file://D:\Development\FSharp\FSharpBio\docs\tools\../output/reference/index.html">API Reference</a></li>
+            <li><a href="http://muehlhaus.github.io/FSharpBio/reference/index.html">API Reference</a></li>
           </ul>
         </div>
       </div>
     </div>
-    <a href="http://github.com/fsprojects/FSharpBio"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/muehlhaus/FSharpBio"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
   </body>
   </html>
