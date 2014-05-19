@@ -162,6 +162,9 @@ docs/output/
 # Temp folder used for publishing docs
 temp/
 
+src/
+tests/
+
 # Test results produced by build
 TestResults.xml
 
