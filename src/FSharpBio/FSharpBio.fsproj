@@ -100,6 +100,7 @@
     <Compile Include="IO\FastA.fs" />
     <Compile Include="IO\AgilentRaw.fs" />
     <Compile Include="IO\Serialization.fs" />
+    <Compile Include="IO\BlastXml.fs" />
     <Compile Include="IO\WebServices\WebServer.fs" />
     <Compile Include="IO\WebServices\SoapUtil.fs" />
     <Compile Include="IO\WebServices\WSTargetP.fs" />
